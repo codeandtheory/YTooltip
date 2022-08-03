@@ -1,0 +1,65 @@
+import com.dependecy.ytooltip.DependencyManager
+import com.dependecy.ytooltip.Version
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.app.ytooltip"
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Version.COMPOSE_COMPILER
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation DependencyManager.CORE_KTX
+    implementation DependencyManager.COMPOSE_UI
+    implementation DependencyManager.COMPOSE_MATERIAL
+    implementation DependencyManager.COMPOSE_TOOLING_PREVIEW
+    implementation DependencyManager.RUNTIME_KTX
+    implementation DependencyManager.COMPOSE_ACTIVITY
+    testImplementation DependencyManager.JUNIT
+    androidTestImplementation DependencyManager.TEST_EXTN
+    androidTestImplementation DependencyManager.ESPRESSO_CORE
+    androidTestImplementation DependencyManager.COMPOSE_JUNIT
+    debugImplementation DependencyManager.COMPOSE_UI_TOOLING
+    debugImplementation DependencyManager.COMPOSE_UI_TEST_MANIFEST
+}
