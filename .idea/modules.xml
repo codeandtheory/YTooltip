@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHintSample.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHintSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.main.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.main.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.unitTest.iml" />
+    </modules>
+  </component>
+</project>
