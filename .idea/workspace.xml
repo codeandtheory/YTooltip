@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="968a550e-1aaf-43a3-977c-3c86f2ca0e04" name="Changes" comment="app module added" />
+    <list default="true" id="968a550e-1aaf-43a3-977c-3c86f2ca0e04" name="Changes" comment="project setup">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.FloatingHint.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Feature/CM-745/Tooltip_support_in_compose_UI_Branch_feature/CM-745/Tooltip_support_in_compose_UI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -210,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660117368045</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="project setup">
+      <created>1660121383901</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660121383901</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +237,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="app module added" />
-    <option name="LAST_COMMIT_MESSAGE" value="app module added" />
+    <MESSAGE value="project setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="project setup" />
   </component>
 </project>

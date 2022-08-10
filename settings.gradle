@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "FloatingHintSample"
-include ':FloatingHint'
+include ':component'
 include ':experiments'
 include ':app'
