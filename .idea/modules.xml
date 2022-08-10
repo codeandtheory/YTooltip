@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FloatingHintSample.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.component.iml" filepath="$PROJECT_DIR$/.idea/modules/FloatingHint/FloatingHintSample.component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.main.iml" filepath="$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/component/FloatingHintSample.component.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.main.iml" filepath="$PROJECT_DIR$/.idea/modules/experiments/FloatingHintSample.experiments.main.iml" />
