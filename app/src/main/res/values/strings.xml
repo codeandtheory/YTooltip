@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FloatingHintSample</string>
+    <string name="app_name">ToolTip</string>
     <string name="close">Close</string>
     <string name="info_1">Info 1</string>
     <string name="info_4">Info 4</string>
