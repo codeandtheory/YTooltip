@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        compose_version = '1.1.1'
+        compose_version = '1.2.0-rc02'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
@@ -12,3 +12,19 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+/*
+repositories {
+    mavenCentral()
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+*/
