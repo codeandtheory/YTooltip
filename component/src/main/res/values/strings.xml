@@ -1,5 +1,0 @@
-<resources>
-    <string name="close">Close</string>
-    <string name="hint_text">Tool tip arrow should point to the anchor view,
-    the arrow position should change based anchor view.</string>
-</resources>
