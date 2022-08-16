@@ -15,11 +15,11 @@ class EdgePosition(
     rectOffset: Offset = Offset.Zero
 ) {
     /**
-     * When it comes to either [AnchorEdge.Top] or [AnchorEdge.Bottom],
+     * When it comes to either [AnchorEdgeView.Top] or [AnchorEdgeView.Bottom],
      * percent 0.0 means the horizontal start position of the anchor,
      * and percent 1.0 means the horizontal end position of the anchor.
      *
-     * If it comes to either [AnchorEdge.Start] or [AnchorEdge.End],
+     * If it comes to either [AnchorEdgeView.Start] or [AnchorEdgeView.End],
      * percent 0.0 means the top of the anchor, and percent 1.0 means the bottom of the anchor.
      */
     @get:FloatRange(from = 0.0, to = 1.0)

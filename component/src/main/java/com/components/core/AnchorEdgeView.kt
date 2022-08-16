@@ -11,9 +11,9 @@ import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
 import kotlin.math.roundToInt
 
-abstract class AnchorEdge {
+abstract class AnchorEdgeView {
     @Composable
-    internal abstract fun TooltipContainer(
+    internal abstract fun AnchorEdgeViewTooltipContainer(
         modifier: Modifier,
         cornerRadius: Dp,
         tipPosition: EdgePosition,
@@ -21,7 +21,7 @@ abstract class AnchorEdge {
         content: @Composable () -> Unit
     )
 
-    internal open fun calculatePopupPosition(
+    internal open fun popupPositionCalculate(
         density: Density,
         tooltipStyle: TooltipStyle,
         tipPosition: EdgePosition,
@@ -43,7 +43,7 @@ abstract class AnchorEdge {
     internal abstract fun Modifier.minSize(tooltipStyle: TooltipStyle): Modifier
     internal abstract fun Path.drawTip(size: Size, layoutDirection: LayoutDirection)
 
-    abstract class VerticalAnchorEdge : AnchorEdge() {
+    abstract class VerticalAnchorEdge : AnchorEdgeView() {
         override fun ConstrainScope.align(anchor: ConstrainedLayoutReference, bias: Float) {
             linkTo(anchor.top, anchor.bottom, bias = bias)
         }
@@ -89,7 +89,7 @@ abstract class AnchorEdge {
         }
     }
 
-    abstract class HorizontalAnchorEdge : AnchorEdge() {
+    abstract class HorizontalAnchorEdge : AnchorEdgeView() {
         override fun ConstrainScope.align(anchor: ConstrainedLayoutReference, bias: Float) {
             linkTo(anchor.start, anchor.end, bias = bias)
         }
@@ -170,7 +170,7 @@ abstract class AnchorEdge {
         }
 
         @Composable
-        override fun TooltipContainer(
+        override fun AnchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: EdgePosition,
@@ -212,7 +212,7 @@ abstract class AnchorEdge {
             }
         }
 
-        override fun calculatePopupPosition(
+        override fun popupPositionCalculate(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: EdgePosition,
@@ -253,7 +253,7 @@ abstract class AnchorEdge {
         }
 
         @Composable
-        override fun TooltipContainer(
+        override fun AnchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: EdgePosition,
@@ -295,7 +295,7 @@ abstract class AnchorEdge {
             }
         }
 
-        override fun calculatePopupPosition(
+        override fun popupPositionCalculate(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: EdgePosition,
@@ -343,7 +343,7 @@ abstract class AnchorEdge {
         }
 
         @Composable
-        override fun TooltipContainer(
+        override fun AnchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: EdgePosition,
@@ -385,7 +385,7 @@ abstract class AnchorEdge {
             }
         }
 
-        override fun calculatePopupPosition(
+        override fun popupPositionCalculate(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: EdgePosition,
@@ -426,7 +426,7 @@ abstract class AnchorEdge {
         }
 
         @Composable
-        override fun TooltipContainer(
+        override fun AnchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: EdgePosition,
@@ -468,7 +468,7 @@ abstract class AnchorEdge {
             }
         }
 
-        override fun calculatePopupPosition(
+        override fun popupPositionCalculate(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: EdgePosition,

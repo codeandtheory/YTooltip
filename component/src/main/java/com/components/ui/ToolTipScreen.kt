@@ -20,13 +20,21 @@ import com.components.utils.TRANSPARENT_ALPHA
 import com.components.utils.DEFAULT_CORNER_RADIUS
 import com.components.utils.DEFAULT_SCREEN_PADDING
 
+/**
+ * @param modifier Setup modifier
+ * @param mainContent Main screen content.
+ * @param paddingHighlightArea Padding for highlighted area.
+ * @param cornerRadiusHighlightArea Focus corner radius highlighted area.
+ * @param anyHintVisible Hint Visibility.
+ * @param visibleHintCoordinates Coordinate of visible tip.
+ */
 @Composable
 fun ToolTipScreen(
     modifier: Modifier = Modifier,
     mainContent: @Composable () -> Unit,
     paddingHighlightArea: Float = DEFAULT_SCREEN_PADDING,
     cornerRadiusHighlightArea: Float = DEFAULT_CORNER_RADIUS,
-    anyHintVisible: MutableState<Boolean>,
+    anyHintVisible: Boolean,
     visibleHintCoordinates: MutableState<LayoutCoordinates?>,
 ) {
     val viewOffset: Offset = visibleHintCoordinates.value?.positionInRoot() ?: Offset(0f, 0f)
@@ -46,9 +54,16 @@ fun ToolTipScreen(
     }
 }
 
+/**
+ * @param anyHintVisible Hint visibility
+ * @param viewOffset Offset from root.
+ * @param viewOffsetSize Offset size to tip coordinate .
+ * @param cornerRadius Corner radius for focus area.
+ * @param padding Padding for offset.
+ */
 @Composable
 fun DrawCanvas(
-    anyHintVisible: MutableState<Boolean>,
+    anyHintVisible: Boolean,
     viewOffset: Offset,
     viewOffsetSize: IntSize,
     cornerRadius: Float,
@@ -70,7 +85,7 @@ fun DrawCanvas(
             }
     ) {
         drawRect(
-            color = if (anyHintVisible.value) Color.Black.copy(TRANSPARENT_ALPHA) else Color.Transparent,
+            color = if (anyHintVisible) Color.Black.copy(TRANSPARENT_ALPHA) else Color.Transparent,
         )
         drawRoundRect(
             size = vOffsetSize,

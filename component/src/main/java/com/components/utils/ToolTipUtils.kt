@@ -12,15 +12,13 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import com.components.core.AnchorEdge
+import com.components.core.AnchorEdgeView
 import com.components.core.EdgePosition
 import com.components.core.TooltipStyle
 import com.components.ui.Tip
 import com.components.ui.TooltipContentContainer
 
-enum class ToolTipGravity {
-    START, END, TOP, BOTTOM, NONE
-}
+
 
 fun LayoutCoordinates.calculatePosition(): IntSize {
     val start = positionInWindow().x
@@ -37,7 +35,7 @@ fun LayoutCoordinates.calculatePosition(): IntSize {
 
 @Composable
 fun PredictAnchorEdge(
-    anchorEdgeState: MutableState<AnchorEdge>,
+    anchorEdgeState: MutableState<AnchorEdgeView>,
     yPosition: Int,
     gravity: ToolTipGravity = ToolTipGravity.NONE,
     maxHeightOfTooltip: Dp = TOOLTIP_MAX_HEIGHT
@@ -58,26 +56,26 @@ fun PredictAnchorEdge(
                  */
                 val spaceBelowAnchor = screenHeightDp - anchorYPosDp - TOOLTIP_ADDITIONAL_PADDING
                 if (spaceBelowAnchor > maxHeightOfTooltip) {
-                    anchorEdgeState.value = AnchorEdge.Bottom
+                    anchorEdgeState.value = AnchorEdgeView.Bottom
                 } else {
                     /**
                      * There is no enough space, show tooltip at the TOP
                      */
-                    anchorEdgeState.value = AnchorEdge.Top
+                    anchorEdgeState.value = AnchorEdgeView.Top
                 }
             } else {
                 /**
                  * Anchor lies in the top half od the screen.
                  * Tool tip can be shown below anchor
                  */
-                anchorEdgeState.value = AnchorEdge.Bottom
+                anchorEdgeState.value = AnchorEdgeView.Bottom
             }
         } else {
             when (gravity) {
-                ToolTipGravity.TOP -> anchorEdgeState.value = AnchorEdge.Top
-                ToolTipGravity.BOTTOM -> anchorEdgeState.value = AnchorEdge.Bottom
-                ToolTipGravity.START -> anchorEdgeState.value = AnchorEdge.Start
-                ToolTipGravity.END -> anchorEdgeState.value = AnchorEdge.End
+                ToolTipGravity.TOP -> anchorEdgeState.value = AnchorEdgeView.Top
+                ToolTipGravity.BOTTOM -> anchorEdgeState.value = AnchorEdgeView.Bottom
+                ToolTipGravity.START -> anchorEdgeState.value = AnchorEdgeView.Start
+                ToolTipGravity.END -> anchorEdgeState.value = AnchorEdgeView.End
                 else -> {}
             }
         }
@@ -136,16 +134,22 @@ fun Resources.getStatusBarHeight(): Int {
     return statusBarHeight
 }
 
-
+/**
+ * @param tooltipStyle Custom style tooltip
+ * @param tipPosition Tooltip position.
+ * @param anchorEdge AnchorEdge for tip.
+ * @param modifier Custom modifier.
+ * @param content Custom content.
+ */
 @Composable
-fun AnchorEdge.TooltipImpl(
+fun AnchorEdgeView.TooltipImpl(
     tooltipStyle: TooltipStyle,
     tipPosition: EdgePosition,
-    anchorEdge: AnchorEdge,
+    anchorEdge: AnchorEdgeView,
     modifier: Modifier = Modifier,
     content: @Composable (RowScope.() -> Unit)
 ) {
-    TooltipContainer(
+    AnchorEdgeViewTooltipContainer(
         modifier = modifier,
         cornerRadius = tooltipStyle.cornerRadius,
         tipPosition = tipPosition,

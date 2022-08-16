@@ -24,24 +24,32 @@ import com.components.core.rememberTooltipStyle
 import com.components.ui.ToolTip
 import com.components.utils.*
 
-enum class ItemPosition {
-    Start, Finish
-}
-
-enum class AbsoluteOffset {
-    X, Y
-}
-
-
+/**
+ * @param modifier Custom modifier
+ * @param hintText ToolTipHint text
+ * @param hintTextColor ToolTipHint text color
+ * @param hintBackgroundColor ToolTipHint background color
+ * @param isHintVisible ToolTipHint visibility
+ * @param visibleHintCoordinates ToolTipHint coordinate visibility
+ * @param hintGravity ToolTipHint gravity
+ * @param dismissHintText ToolTipHint dismiss text
+ * @param dismissHintTextColor ToolTipHint dismiss text color
+ * @param isDismissButtonHide ToolTipHint dismiss button visibility
+ * @param margin ToolTipHint margin
+ * @param verticalPadding ToolTipHint vertical padding
+ * @param horizontalPadding ToolTipHint horizontal padding
+ * @param dismissOnTouchOutside ToolTipHint dismiss on touch outside
+ * @param customHintContent ToolTipHint custom content
+ * @param customViewClickable ToolTipHint custom view click
+ */
 @Composable
-fun FloatingHint(
+fun ToolTipView(
     modifier: Modifier = Modifier,
     hintText: String = EMPTY_STRING,
     hintTextColor: Color = Color.White,
     hintBackgroundColor: Color = Color.LightGray,
     isHintVisible: MutableState<Boolean>,
     visibleHintCoordinates: MutableState<LayoutCoordinates?>,
-    anyHintVisible: MutableState<Boolean>,
     hintGravity: ToolTipGravity = ToolTipGravity.NONE,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
@@ -116,7 +124,7 @@ fun FloatingHint(
             }
         }
 
-        FloatingHintView(
+        ToolTipHintView(
             modifier = modifierNew,
             hintText = hintText,
             hintTextColor = hintTextColor,
@@ -131,8 +139,7 @@ fun FloatingHint(
             verticalPadding = verticalPadding,
             horizontalPadding = horizontalPadding,
             dismissOnTouchOutside = dismissOnTouchOutside,
-            animState = animState,
-            anyHintVisible = anyHintVisible
+            animState = animState
         ) { _, modifier ->
             Box(
                 contentAlignment = Alignment.Center,
@@ -148,7 +155,6 @@ fun FloatingHint(
                         visibleHintCoordinates.value = it
                     }
                     .clickable {
-                        anyHintVisible.value = !isHintVisible.value
                         isHintVisible.value = !isHintVisible.value
                         animState.value = when (animState.value) {
                             ItemPosition.Start -> ItemPosition.Finish
@@ -169,15 +175,31 @@ fun FloatingHint(
     }
 }
 
-
+/**
+ * @param modifier Custom modifier
+ * @param hintText ToolTipHint text
+ * @param hintTextColor ToolTipHint text color
+ * @param hintBackgroundColor ToolTipHint background color
+ * @param isHintVisible ToolTipHint visibility
+ * @param hintGravity ToolTipHint gravity
+ * @param dismissHintText ToolTipHint dismiss text
+ * @param dismissHintTextColor ToolTipHint dismiss text color
+ * @param isDismissButtonHide ToolTipHint dismiss button visibility
+ * @param customHintContent ToolTipHint custom content
+ * @param margin ToolTipHint margin
+ * @param verticalPadding ToolTipHint vertical padding
+ * @param animState ToolTipHint animation state
+ * @param horizontalPadding ToolTipHint horizontal padding
+ * @param dismissOnTouchOutside ToolTipHint dismiss on touch outside
+ * @param anchor ToolTipHint anchor view
+ */
 @Composable
-fun FloatingHintView(
+fun ToolTipHintView(
     modifier: Modifier = Modifier,
     hintText: String = EMPTY_STRING,
     hintTextColor: Color = Color.White,
     hintBackgroundColor: Color = Color.LightGray,
     isHintVisible: MutableState<Boolean>,
-    anyHintVisible: MutableState<Boolean>,
     hintGravity: ToolTipGravity,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
@@ -204,46 +226,34 @@ fun FloatingHintView(
         color = hintBackgroundColor
     }
 
-    Box() {
+    Box {
         /**
          * state holds the live position of center of anchor
          */
         val anchorPosition = remember {
             mutableStateOf(DEFAULT_SIZE)
         }
-        /**
-         * Create anchor composable view
-         * passing modifier along with the scope lets it gives access to the
-         * modifier of the anchor,
-         * and its position can be calculated [onGloballyPositioned]
-         */
+
         anchor(this, Modifier.onGloballyPositioned {
             anchorPosition.value = it.calculatePosition()
         })
 
-        /**
-         * Tooltip container
-         *
-         * Content of the tooltip is Text
-         */
         ToolTip(
             modifier = modifier,
             anchorPositionInPixels = anchorPosition,
             visibleState = isHintVisible,
-            anyHintVisible = anyHintVisible,
             gravity = hintGravity,
             toolTipStyle = toolTipStyle,
             dismissOnTouchOutside = dismissOnTouchOutside,
             margin = margin,
             animState = animState,
             toolTipContent = customHintContent ?: {
-                DefaultHintView(
+                DefaultToolTipHintView(
                     hintText = hintText,
                     animState = animState,
                     hintTextColor = hintTextColor,
                     dismissHintTextColor = dismissHintTextColor,
                     isHintVisible = isHintVisible,
-                    anyHintVisible = anyHintVisible,
                     dismissHintText = dismissHintText,
                     isDismissButtonHide = isDismissButtonHide,
                 )
@@ -252,16 +262,24 @@ fun FloatingHintView(
     }
 }
 
-
+/**
+ * @param hintText Hint text,
+ * @param hintTextColor Hint text color,
+ * @param isHintVisible Hint visibility ,
+ * @param dismissHintText Dismiss text ,
+ * @param dismissHintTextColor Dismiss text color,
+ * @param isDismissButtonHide Dismiss button visibility,
+ * @param anyHintVisible Hint visible,
+ * @param animState Animation state,
+ * */
 @Composable
-fun DefaultHintView(
+fun DefaultToolTipHintView(
     hintText: String = EMPTY_STRING,
     hintTextColor: Color = Color.White,
     isHintVisible: MutableState<Boolean>,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
     isDismissButtonHide: Boolean = false,
-    anyHintVisible: MutableState<Boolean>,
     animState: MutableState<ItemPosition>? = null,
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
@@ -287,7 +305,6 @@ fun DefaultHintView(
                 modifier = Modifier
                     .padding(DEFAULT_PADDING)
                     .clickable {
-                        anyHintVisible.value = !isHintVisible.value
                         isHintVisible.value = !isHintVisible.value
                         if (animState != null) {
                             animState.value = when (animState.value) {

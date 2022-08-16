@@ -17,12 +17,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.*
 import androidx.compose.ui.window.*
-import com.components.ItemPosition
-import com.components.core.AnchorEdge
+import com.components.core.AnchorEdgeView
 import com.components.core.EdgePosition
 import com.components.core.TooltipStyle
 import com.components.core.rememberTooltipStyle
 import com.components.utils.*
+
+
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -31,7 +32,6 @@ fun ToolTip(
     modifier: Modifier = Modifier,
     anchorPositionInPixels: MutableState<IntSize>,
     visibleState: MutableState<Boolean>,
-    anyHintVisible: MutableState<Boolean>,
     gravity: ToolTipGravity,
     margin: Dp,
     animState: MutableState<ItemPosition>? = null,
@@ -42,7 +42,7 @@ fun ToolTip(
     /**
      * Tooltip states
      */
-    val anchorEdgeState = remember { mutableStateOf<AnchorEdge>(AnchorEdge.Bottom) }
+    val anchorEdgeState = remember { mutableStateOf<AnchorEdgeView>(AnchorEdgeView.Bottom) }
     val tipPosition = remember { EdgePosition() }
     val anchorPosition = remember { EdgePosition() }
 
@@ -71,7 +71,6 @@ fun ToolTip(
         },
         onDismissRequest = {
             visibleState.value = !dismissOnTouchOutside
-            anyHintVisible.value = !dismissOnTouchOutside
             if (animState != null) {
                 animState.value = when (animState.value) {
                     ItemPosition.Start -> ItemPosition.Finish
@@ -89,7 +88,7 @@ fun ToolTip(
 @ExperimentalAnimationApi
 @Composable
 fun Tooltip(
-    anchorEdge: AnchorEdge,
+    anchorEdge: AnchorEdgeView,
     enterTransition: EnterTransition,
     exitTransition: ExitTransition,
     modifier: Modifier = Modifier,
@@ -177,7 +176,7 @@ fun Tooltip(
 }
 
 @Composable
-internal fun Tip(anchorEdge: AnchorEdge, tooltipStyle: TooltipStyle) = with(anchorEdge) {
+internal fun Tip(anchorEdge: AnchorEdgeView, tooltipStyle: TooltipStyle) = with(anchorEdge) {
     Box(modifier = Modifier
         .size(
             width = anchorEdge.selectWidth(
@@ -200,7 +199,7 @@ internal fun Tip(anchorEdge: AnchorEdge, tooltipStyle: TooltipStyle) = with(anch
 
 @Composable
 internal fun TooltipContentContainer(
-    anchorEdge: AnchorEdge,
+    anchorEdge: AnchorEdgeView,
     tooltipStyle: TooltipStyle,
     content: @Composable (RowScope.() -> Unit)
 ) = with(anchorEdge) {
