@@ -3,7 +3,6 @@ package com.components
 import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -13,12 +12,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
@@ -38,68 +32,6 @@ enum class AbsoluteOffset {
     X, Y
 }
 
-
-@Composable
-fun ToolTipView(
-    modifier: Modifier = Modifier,
-    mainContent: @Composable () -> Unit,
-    paddingHighlightArea: Float = defaultPadding,
-    cornerRadiusHighlightArea: Float = defaultCornerRadius,
-    anyHintVisible: MutableState<Boolean>,
-    visibleHintCoordinates: MutableState<LayoutCoordinates?>,
-) {
-    val buttonPosition: Offset = visibleHintCoordinates.value?.positionInRoot() ?: Offset(0f, 0f)
-    val buttonSize: IntSize = visibleHintCoordinates.value?.size ?: IntSize(0, 0)
-
-    Box(
-        modifier = modifier
-    ) {
-        mainContent()
-        drawCanvas(
-            anyHintVisible = anyHintVisible,
-            buttonPosition = buttonPosition,
-            buttonSize = buttonSize,
-            padding = paddingHighlightArea,
-            cornerRadius = cornerRadiusHighlightArea
-        )
-    }
-}
-
-@Composable
-fun drawCanvas(
-    anyHintVisible: MutableState<Boolean>,
-    buttonPosition: Offset,
-    buttonSize: IntSize,
-    cornerRadius: Float,
-    padding: Float
-) {
-    val btnSize = Size(
-        buttonSize.width.toFloat() + padding,
-        buttonSize.height.toFloat() + padding
-    )
-    val btnPosition =
-        Offset(buttonPosition.x - padding / 2, buttonPosition.y - padding / 2)
-
-
-    Canvas(
-        modifier = Modifier
-            .fillMaxSize()
-            .graphicsLayer {
-                alpha = .99f
-            }
-    ) {
-        drawRect(
-            color = if (anyHintVisible.value) Color.Black.copy(TRANSPARENT_ALPHA) else Color.Transparent,
-        )
-        drawRoundRect(
-            size = btnSize,
-            color = Color.Transparent,
-            topLeft = btnPosition,
-            cornerRadius = CornerRadius(cornerRadius, cornerRadius),
-            blendMode = BlendMode.Clear
-        )
-    }
-}
 
 @Composable
 fun FloatingHint(
@@ -131,40 +63,40 @@ fun FloatingHint(
             iconArrangement = Arrangement.End
             absoluteOffset = AbsoluteOffset.X
             offsetAnim = animateDpAsState(
-                if (animState.value == ItemPosition.Start) startAnimStartPos else startAnimEndPos,
-                tween(animDurationMillis, easing = cubicBezierEasing)
+                if (animState.value == ItemPosition.Start) START_ANIM_START_POS else START_ANIM_END_POS,
+                tween(ANIMATION_DURATION, easing = CUBIC_BEZIER_EASING)
             ).value
         }
         ToolTipGravity.END -> {
             iconArrangement = Arrangement.Start
             absoluteOffset = AbsoluteOffset.X
             offsetAnim = animateDpAsState(
-                if (animState.value == ItemPosition.Start) endAnimStartPos else endAnimEndPos,
-                tween(animDurationMillis, easing = cubicBezierEasing)
+                if (animState.value == ItemPosition.Start) END_ANIM_START_POS else END_ANIM_END_POS,
+                tween(ANIMATION_DURATION, easing = CUBIC_BEZIER_EASING)
             ).value
         }
         ToolTipGravity.TOP -> {
             iconArrangement = Arrangement.Center
             absoluteOffset = AbsoluteOffset.Y
             offsetAnim = animateDpAsState(
-                if (animState.value == ItemPosition.Start) topAnimStartPos else topAnimEndPos,
-                tween(animDurationMillis, easing = cubicBezierEasing)
+                if (animState.value == ItemPosition.Start) TOP_ANIM_START_POS else TOP_ANIM_END_POS,
+                tween(ANIMATION_DURATION, easing = CUBIC_BEZIER_EASING)
             ).value
         }
         ToolTipGravity.BOTTOM -> {
             iconArrangement = Arrangement.Center
             absoluteOffset = AbsoluteOffset.Y
             offsetAnim = animateDpAsState(
-                if (animState.value == ItemPosition.Start) bottomAnimStartPos else bottomAnimEndPos,
-                tween(animDurationMillis, easing = cubicBezierEasing)
+                if (animState.value == ItemPosition.Start) BOTTOM_ANIM_START_POS else BOTTOM_ANIM_END_POS,
+                tween(ANIMATION_DURATION, easing = CUBIC_BEZIER_EASING)
             ).value
         }
         else -> {
             iconArrangement = Arrangement.Center
             absoluteOffset = AbsoluteOffset.Y
             offsetAnim = animateDpAsState(
-                if (animState.value == ItemPosition.Start) topAnimStartPos else topAnimEndPos,
-                tween(animDurationMillis, easing = cubicBezierEasing)
+                if (animState.value == ItemPosition.Start) TOP_ANIM_START_POS else TOP_ANIM_END_POS,
+                tween(ANIMATION_DURATION, easing = CUBIC_BEZIER_EASING)
             ).value
         }
     }

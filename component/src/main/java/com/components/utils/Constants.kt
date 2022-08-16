@@ -4,9 +4,10 @@ import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
-const val MAX_LINE = 3
 val DEFAULT_PADDING = 5.dp
 val DEFAULT_MARGIN = 5.dp
+
+const val MAX_LINE = 3
 const val EMPTY_STRING = ""
 const val CLOSE_STRING = "Close"
 
@@ -23,18 +24,21 @@ const val TRANSITION_EXIT = 2
 const val TRANSITION_GONE = 3
 
 const val TRANSPARENT_ALPHA = 0.5f
+const val SCREEN_ALPHA = .99f
 
 
 //FloatingHint anim config
-const val animDurationMillis = 1500
-val cubicBezierEasing = CubicBezierEasing(0.4f, 0.0f, 0.8f, 0.8f)
-val topAnimStartPos = -(200.dp)
-val topAnimEndPos = 0.dp
-val bottomAnimStartPos = 200.dp
-val bottomAnimEndPos = 0.dp
-val startAnimStartPos = -(100.dp)
-val startAnimEndPos = 0.dp
-val endAnimStartPos = 100.dp
-val endAnimEndPos = 0.dp
-const val defaultCornerRadius = 20f
-const val defaultPadding = 20f
+const val ANIMATION_DURATION = 1500
+
+val CUBIC_BEZIER_EASING = CubicBezierEasing(0.4f, 0.0f, 0.8f, 0.8f)
+val TOP_ANIM_START_POS = -(200.dp)
+val TOP_ANIM_END_POS = 0.dp
+val BOTTOM_ANIM_START_POS = 200.dp
+val BOTTOM_ANIM_END_POS = 0.dp
+val START_ANIM_START_POS = -(100.dp)
+val START_ANIM_END_POS = 0.dp
+val END_ANIM_START_POS = 100.dp
+val END_ANIM_END_POS = 0.dp
+
+const val DEFAULT_CORNER_RADIUS = 20f
+const val DEFAULT_SCREEN_PADDING = 20f
