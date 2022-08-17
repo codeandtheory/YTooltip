@@ -1,9 +1,6 @@
 package com.components.utils
 
-import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
-
 
 const val MAX_LINE = 3
 const val EMPTY_STRING = ""

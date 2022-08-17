@@ -1,9 +1,14 @@
 package com.components.utils
 
-import androidx.compose.ui.unit.*
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntRect
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.window.PopupPositionProvider
-import com.components.core.AnchorEdgeView
-import com.components.core.EdgePosition
+import com.components.core.ToolTipAnchorEdgeView
+import com.components.core.ToolTipEdgePosition
 import com.components.core.TooltipStyle
 
 /**
@@ -17,10 +22,10 @@ import com.components.core.TooltipStyle
  */
 class TooltipPopupPositionProvider(
     private val density: Density,
-    private val anchorEdge: AnchorEdgeView,
+    private val anchorEdge: ToolTipAnchorEdgeView,
     private val tooltipStyle: TooltipStyle,
-    private val tipPosition: EdgePosition,
-    private val anchorPosition: EdgePosition,
+    private val tipPosition: ToolTipEdgePosition,
+    private val anchorPosition: ToolTipEdgePosition,
     private val margin: Dp,
     private val statusBarHeight: Int
 ) : PopupPositionProvider {

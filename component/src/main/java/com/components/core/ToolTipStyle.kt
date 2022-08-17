@@ -2,7 +2,11 @@ package com.components.core
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -14,42 +18,17 @@ class TooltipStyle internal constructor(
     tipHeight: Dp,
     contentPadding: PaddingValues
 ) {
-    /**
-     * Background color of tooltip.
-     */
     var color by mutableStateOf(color)
 
-    /**
-     * Corner radius of balloon.
-     */
     var cornerRadius by mutableStateOf(cornerRadius)
 
-    /**
-     * Width of tip.
-     */
     var tipWidth by mutableStateOf(tipWidth)
 
-    /**
-     * Height of tip.
-     */
     var tipHeight by mutableStateOf(tipHeight)
 
-    /**
-     * Padding between balloon and content.
-     */
     var contentPadding by mutableStateOf(contentPadding)
 }
 
-/**
- * Create a [TooltipStyle] and remember it.
- *
- * @param color Background color of tooltip. By default, it uses the seconday color of
- *   [MaterialTheme].
- * @param cornerRadius Corner radius of balloon.
- * @param tipWidth Width of tip.
- * @param tipHeight Height of tip.
- * @param contentPadding Padding between balloon and content.
- */
 @Composable
 fun rememberTooltipStyle(
     color: Color = MaterialTheme.colors.secondary,

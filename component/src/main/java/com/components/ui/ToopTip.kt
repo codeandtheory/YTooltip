@@ -1,29 +1,47 @@
 package com.components.ui
 
-import androidx.compose.animation.*
-import androidx.compose.foundation.background
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.GenericShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.contentColorFor
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.RememberObserver
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.*
-import androidx.compose.ui.window.*
-import com.components.core.AnchorEdgeView
-import com.components.core.EdgePosition
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.window.PopupProperties
+import androidx.compose.ui.window.Popup
 import com.components.core.TooltipStyle
 import com.components.core.rememberTooltipStyle
-import com.components.utils.*
-
-
+import com.components.core.ToolTipAnchorEdgeView
+import com.components.core.ToolTipHorizontalEdge
+import com.components.core.ToolTipEdgePosition
+import com.components.utils.ItemPosition
+import com.components.utils.ToolTipGravity
+import com.components.utils.PredictAnchorEdge
+import com.components.utils.PredictTipPosition
+import com.components.utils.DEFAULT_MARGIN
+import com.components.utils.TRANSITION_GONE
+import com.components.utils.TRANSITION_INITIALIZE
+import com.components.utils.TRANSITION_EXIT
+import com.components.utils.TRANSITION_ENTER
+import com.components.utils.getStatusBarHeight
+import com.components.utils.TooltipPopupPositionProvider
+import com.components.utils.TooltipImpl
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -42,9 +60,9 @@ fun ToolTip(
     /**
      * Tooltip states
      */
-    val anchorEdgeState = remember { mutableStateOf<AnchorEdgeView>(AnchorEdgeView.Bottom) }
-    val tipPosition = remember { EdgePosition() }
-    val anchorPosition = remember { EdgePosition() }
+    val anchorEdgeState = remember { mutableStateOf<ToolTipAnchorEdgeView>(ToolTipHorizontalEdge.Bottom) }
+    val tipPosition = remember { ToolTipEdgePosition() }
+    val anchorPosition = remember { ToolTipEdgePosition() }
 
     PredictAnchorEdge(
         anchorEdgeState = anchorEdgeState,
@@ -88,14 +106,14 @@ fun ToolTip(
 @ExperimentalAnimationApi
 @Composable
 fun Tooltip(
-    anchorEdge: AnchorEdgeView,
+    anchorEdge: ToolTipAnchorEdgeView,
     enterTransition: EnterTransition,
     exitTransition: ExitTransition,
     modifier: Modifier = Modifier,
     visible: Boolean = true,
     tooltipStyle: TooltipStyle = rememberTooltipStyle(),
-    tipPosition: EdgePosition = remember { EdgePosition() },
-    anchorPosition: EdgePosition = remember { EdgePosition() },
+    tipPosition: ToolTipEdgePosition = remember { ToolTipEdgePosition() },
+    anchorPosition: ToolTipEdgePosition = remember { ToolTipEdgePosition() },
     margin: Dp = DEFAULT_MARGIN,
     onDismissRequest: (() -> Unit)? = null,
     properties: PopupProperties = remember { PopupProperties() },
@@ -171,53 +189,7 @@ fun Tooltip(
                 )
             }
         }
-
     }
 }
 
-@Composable
-internal fun Tip(anchorEdge: AnchorEdgeView, tooltipStyle: TooltipStyle) = with(anchorEdge) {
-    Box(modifier = Modifier
-        .size(
-            width = anchorEdge.selectWidth(
-                tooltipStyle.tipWidth,
-                tooltipStyle.tipHeight
-            ),
-            height = anchorEdge.selectHeight(
-                tooltipStyle.tipWidth,
-                tooltipStyle.tipHeight
-            )
-        )
-        .background(
-            color = tooltipStyle.color,
-            shape = GenericShape { size, layoutDirection ->
-                this.drawTip(size, layoutDirection)
-            }
-        )
-    )
-}
 
-@Composable
-internal fun TooltipContentContainer(
-    anchorEdge: AnchorEdgeView,
-    tooltipStyle: TooltipStyle,
-    content: @Composable (RowScope.() -> Unit)
-) = with(anchorEdge) {
-    Row(
-        modifier = Modifier.Companion
-            .minSize(tooltipStyle)
-            .background(
-                color = tooltipStyle.color,
-                shape = RoundedCornerShape(tooltipStyle.cornerRadius)
-            )
-            .padding(tooltipStyle.contentPadding),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        CompositionLocalProvider(
-            LocalContentColor provides contentColorFor(tooltipStyle.color)
-        ) {
-            content()
-        }
-    }
-}

@@ -4,25 +4,45 @@ import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.absoluteOffset
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material.Icon
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.*
-import com.components.core.rememberTooltipStyle
-import com.components.ui.ToolTip
-import com.components.utils.*
+import androidx.compose.ui.unit.Dp
+import com.components.ui.ToolTipHintView
+import com.components.utils.ToolTipGravity
+import com.components.utils.AbsoluteOffset
+import com.components.utils.ItemPosition
+import com.components.utils.EMPTY_STRING
+import com.components.utils.CLOSE_STRING
+import com.components.utils.DEFAULT_PADDING
+import com.components.utils.DEFAULT_MARGIN
+import com.components.utils.TOP_ANIM_START_POS
+import com.components.utils.TOP_ANIM_END_POS
+import com.components.utils.CUBIC_BEZIER_EASING
+import com.components.utils.ANIMATION_DURATION
+import com.components.utils.START_ANIM_START_POS
+import com.components.utils.START_ANIM_END_POS
+import com.components.utils.END_ANIM_START_POS
+import com.components.utils.END_ANIM_END_POS
+import com.components.utils.BOTTOM_ANIM_START_POS
+import com.components.utils.BOTTOM_ANIM_END_POS
+
 
 /**
  * @param modifier Custom modifier
@@ -175,144 +195,3 @@ fun ToolTipView(
     }
 }
 
-/**
- * @param modifier Custom modifier
- * @param hintText ToolTipHint text
- * @param hintTextColor ToolTipHint text color
- * @param hintBackgroundColor ToolTipHint background color
- * @param isHintVisible ToolTipHint visibility
- * @param hintGravity ToolTipHint gravity
- * @param dismissHintText ToolTipHint dismiss text
- * @param dismissHintTextColor ToolTipHint dismiss text color
- * @param isDismissButtonHide ToolTipHint dismiss button visibility
- * @param customHintContent ToolTipHint custom content
- * @param margin ToolTipHint margin
- * @param verticalPadding ToolTipHint vertical padding
- * @param animState ToolTipHint animation state
- * @param horizontalPadding ToolTipHint horizontal padding
- * @param dismissOnTouchOutside ToolTipHint dismiss on touch outside
- * @param anchor ToolTipHint anchor view
- */
-@Composable
-fun ToolTipHintView(
-    modifier: Modifier = Modifier,
-    hintText: String = EMPTY_STRING,
-    hintTextColor: Color = Color.White,
-    hintBackgroundColor: Color = Color.LightGray,
-    isHintVisible: MutableState<Boolean>,
-    hintGravity: ToolTipGravity,
-    dismissHintText: String = CLOSE_STRING,
-    dismissHintTextColor: Color = Color.White,
-    isDismissButtonHide: Boolean = false,
-    customHintContent: (@Composable (RowScope) -> Unit)? = null,
-    margin: Dp = DEFAULT_MARGIN,
-    verticalPadding: Dp = DEFAULT_PADDING,
-    animState: MutableState<ItemPosition>? = null,
-    horizontalPadding: Dp = DEFAULT_PADDING,
-    dismissOnTouchOutside: Boolean = false,
-    anchor: @Composable (
-        scope: BoxScope,
-        modifier: Modifier
-    ) -> Unit
-) {
-    /**
-     * tooltip style to configure the look of the tooltip
-     */
-    val toolTipStyle = rememberTooltipStyle().apply {
-        contentPadding = PaddingValues(
-            horizontal = horizontalPadding,
-            vertical = verticalPadding
-        )
-        color = hintBackgroundColor
-    }
-
-    Box {
-        /**
-         * state holds the live position of center of anchor
-         */
-        val anchorPosition = remember {
-            mutableStateOf(DEFAULT_SIZE)
-        }
-
-        anchor(this, Modifier.onGloballyPositioned {
-            anchorPosition.value = it.calculatePosition()
-        })
-
-        ToolTip(
-            modifier = modifier,
-            anchorPositionInPixels = anchorPosition,
-            visibleState = isHintVisible,
-            gravity = hintGravity,
-            toolTipStyle = toolTipStyle,
-            dismissOnTouchOutside = dismissOnTouchOutside,
-            margin = margin,
-            animState = animState,
-            toolTipContent = customHintContent ?: {
-                DefaultToolTipHintView(
-                    hintText = hintText,
-                    animState = animState,
-                    hintTextColor = hintTextColor,
-                    dismissHintTextColor = dismissHintTextColor,
-                    isHintVisible = isHintVisible,
-                    dismissHintText = dismissHintText,
-                    isDismissButtonHide = isDismissButtonHide,
-                )
-            }
-        )
-    }
-}
-
-/**
- * @param hintText Hint text,
- * @param hintTextColor Hint text color,
- * @param isHintVisible Hint visibility ,
- * @param dismissHintText Dismiss text ,
- * @param dismissHintTextColor Dismiss text color,
- * @param isDismissButtonHide Dismiss button visibility,
- * @param anyHintVisible Hint visible,
- * @param animState Animation state,
- * */
-@Composable
-fun DefaultToolTipHintView(
-    hintText: String = EMPTY_STRING,
-    hintTextColor: Color = Color.White,
-    isHintVisible: MutableState<Boolean>,
-    dismissHintText: String = CLOSE_STRING,
-    dismissHintTextColor: Color = Color.White,
-    isDismissButtonHide: Boolean = false,
-    animState: MutableState<ItemPosition>? = null,
-) {
-    val screenWidth = LocalConfiguration.current.screenWidthDp
-    Row(
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = hintText,
-            maxLines = MAX_LINE,
-            color = hintTextColor,
-            textAlign = TextAlign.Start,
-            modifier = Modifier
-                .padding(DEFAULT_PADDING)
-                .widthIn(max = (TOOLTIP_MAX_WIDTH_PERCENT * screenWidth).dp)
-        )
-        if (!isDismissButtonHide)
-            Text(
-                text = dismissHintText,
-                color = dismissHintTextColor,
-                textAlign = TextAlign.Center,
-                textDecoration = TextDecoration.Underline,
-                modifier = Modifier
-                    .padding(DEFAULT_PADDING)
-                    .clickable {
-                        isHintVisible.value = !isHintVisible.value
-                        if (animState != null) {
-                            animState.value = when (animState.value) {
-                                ItemPosition.Start -> ItemPosition.Finish
-                                ItemPosition.Finish -> ItemPosition.Start
-                            }
-                        }
-                    }
-            )
-    }
-}
