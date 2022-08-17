@@ -13,6 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "YToolTip"
-include ':experiments'
 include ':app'
-include ':component'
+include ':ToolTip'
