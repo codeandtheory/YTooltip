@@ -12,7 +12,7 @@ import com.tooltip.utils.DEFAULT_CORNER_RADIUS
 import com.tooltip.utils.DEFAULT_SCREEN_PADDING
 
 /**
- * @param modifier Setup modifier
+ * @param modifier Setup modifier.
  * @param mainContent Main screen content.
  * @param paddingHighlightArea Padding for highlighted area.
  * @param cornerRadiusHighlightArea Focus corner radius highlighted area.

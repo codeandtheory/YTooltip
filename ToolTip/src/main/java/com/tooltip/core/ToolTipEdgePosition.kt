@@ -8,17 +8,23 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * ToolTipEdgePosition holds the value
+ * @param toolTipEdgePercent TipEdgePercentage
+ * @param toolTipOffset  TipOffset
+ * @param toolTipRectOffset  TipRectOffset
+ * */
 class ToolTipEdgePosition(
     @FloatRange(from = 0.0, to = 1.0)
-    percent: Float = 0.5f,
-    offset: Dp = 0.dp,
-    rectOffset: Offset = Offset.Zero
+    toolTipEdgePercent: Float = 0.5f,
+    toolTipOffset: Dp = 0.dp,
+    toolTipRectOffset: Offset = Offset.Zero
 ) {
     @get:FloatRange(from = 0.0, to = 1.0)
     @setparam:FloatRange(from = 0.0, to = 1.0)
-    var percent by mutableStateOf(percent)
+    var percent by mutableStateOf(toolTipEdgePercent)
 
-    var offset by mutableStateOf(offset)
+    var offset by mutableStateOf(toolTipOffset)
 
-    var mPositionRect by mutableStateOf(rectOffset)
+    var mPositionRect by mutableStateOf(toolTipRectOffset)
 }

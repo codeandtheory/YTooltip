@@ -36,11 +36,6 @@ abstract class ToolTipAnchorEdgeView {
         statusBarHeight: Int
     ): IntOffset = IntOffset(0, 0)
 
-    internal abstract fun ConstrainScope.outside(anchor: ConstrainedLayoutReference, margin: Dp)
-    internal abstract fun ConstrainScope.align(anchor: ConstrainedLayoutReference, bias: Float)
-    internal abstract fun ConstrainScope.nextTo(anchor: ConstrainedLayoutReference, margin: Dp)
-    internal abstract fun ConstrainScope.beforeTo(anchor: ConstrainedLayoutReference, margin: Dp)
-
     internal abstract fun selectWidth(width: Dp, height: Dp): Dp
     internal abstract fun selectHeight(width: Dp, height: Dp): Dp
     internal abstract fun Modifier.minSize(tooltipStyle: TooltipStyle): Modifier

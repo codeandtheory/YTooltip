@@ -14,6 +14,13 @@ import com.tooltip.core.ToolTipAnchorEdgeView
 import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.TooltipStyle
 
+/**
+ * @param tooltipStyle ToolTip Style
+ * @param tipPosition ToolTip position.
+ * @param anchorEdge Anchor edge view .
+ * @param modifier Custom modifier.
+ * @param content Compose content.
+ */
 @Composable
 fun ToolTipAnchorEdgeView.TooltipImpl(
     tooltipStyle: TooltipStyle,
@@ -37,6 +44,11 @@ fun ToolTipAnchorEdgeView.TooltipImpl(
     )
 }
 
+/**
+ * @param anchorEdge Anchor edge view
+ * @param tooltipStyle ToolTip style.
+ * @param content Compose content.
+ */
 @Composable
 fun TooltipContentContainer(
     anchorEdge: ToolTipAnchorEdgeView,
@@ -62,6 +74,10 @@ fun TooltipContentContainer(
     }
 }
 
+/**
+ * @param anchorEdge Anchor edge view
+ * @param tooltipStyle ToolTip style.
+ */
 @Composable
 fun Tip(anchorEdge: ToolTipAnchorEdgeView, tooltipStyle: TooltipStyle) = with(anchorEdge) {
     Box(modifier = Modifier

@@ -9,21 +9,16 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.min
-import androidx.constraintlayout.compose.ConstrainScope
-import androidx.constraintlayout.compose.ConstrainedLayoutReference
 
+
+/**
+ * ToolTipHorizontalAnchorEdge is to set HorizontalAnchorEdge
+ * @selectWidth - It will gives the minimum from width or height of Tip
+ * @selectHeight - It will gives the maximum from width or height of Tip
+ * @minSize - It will give the minimumSize for ToolTipContainer
+ * @calculatePopupPositionX - Calculate the X popupPosition
+ */
 abstract class ToolTipHorizontalAnchorEdge : ToolTipAnchorEdgeView() {
-    override fun ConstrainScope.align(anchor: ConstrainedLayoutReference, bias: Float) {
-        linkTo(anchor.start, anchor.end, bias = bias)
-    }
-
-    override fun ConstrainScope.nextTo(anchor: ConstrainedLayoutReference, margin: Dp) {
-        start.linkTo(anchor.end, margin)
-    }
-
-    override fun ConstrainScope.beforeTo(anchor: ConstrainedLayoutReference, margin: Dp) {
-        end.linkTo(anchor.start, margin)
-    }
 
     override fun selectWidth(width: Dp, height: Dp): Dp {
         return max(width, height)
@@ -65,7 +60,6 @@ abstract class ToolTipHorizontalAnchorEdge : ToolTipAnchorEdgeView() {
                 } else {
                     1f - tipPosition.percent
                 }
-        val x = tangentLeft - tipMarginLeft
-        return x
+        return tangentLeft - tipMarginLeft
     }
 }

@@ -12,7 +12,7 @@ import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.TooltipStyle
 
 /**
- * @param density Custom density
+ * @param density Custom density.
  * @param anchorEdge AnchorEdge view.
  * @param tooltipStyle Custom tooltip style.
  * @param tipPosition Tip position.

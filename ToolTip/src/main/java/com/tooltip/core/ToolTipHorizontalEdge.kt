@@ -13,16 +13,18 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.IntOffset
-import androidx.constraintlayout.compose.ConstrainScope
-import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
 import kotlin.math.roundToInt
 
+/**
+ * Setup ToolTipHorizontalEdge direction Top or Bottom
+ * */
 sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
+
+    /**
+     * Setup ToolTipHorizontalEdge Top of Popup
+     * */
     object Top : ToolTipHorizontalEdge() {
-        override fun ConstrainScope.outside(anchor: ConstrainedLayoutReference, margin: Dp) {
-            bottom.linkTo(anchor.top, margin)
-        }
 
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
             moveTo(0f, 0f)
@@ -98,10 +100,12 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             return IntOffset(x.roundToInt(), y.roundToInt())
         }
     }
+
+
+    /**
+     * Setup ToolTipHorizontalEdge Bottom of Popup
+     * */
     object Bottom : ToolTipHorizontalEdge() {
-        override fun ConstrainScope.outside(anchor: ConstrainedLayoutReference, margin: Dp) {
-            top.linkTo(anchor.bottom, margin)
-        }
 
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
             moveTo(0f, size.height)

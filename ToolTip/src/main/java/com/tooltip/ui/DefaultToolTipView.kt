@@ -23,13 +23,13 @@ import com.tooltip.utils.DEFAULT_PADDING
 import com.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
 
 /**
- * @param hintText Hint text,
- * @param hintTextColor Hint text color,
- * @param isHintVisible Hint visibility ,
- * @param dismissHintText Dismiss text ,
- * @param dismissHintTextColor Dismiss text color,
- * @param isDismissButtonHide Dismiss button visibility,
- * @param animState Animation state,
+ * @param hintText Hint text.
+ * @param hintTextColor Hint text color.
+ * @param isHintVisible Hint visibility .
+ * @param dismissHintText Dismiss text .
+ * @param dismissHintTextColor Dismiss text color.
+ * @param isDismissButtonHide Dismiss button visibility.
+ * @param animState Animation state.
  * */
 @Composable
 fun DefaultToolTipView(

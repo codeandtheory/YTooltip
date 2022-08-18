@@ -44,6 +44,17 @@ import com.tooltip.utils.TooltipPopupPositionProvider
 import com.tooltip.utils.TooltipImpl
 import kotlinx.coroutines.delay
 
+/**
+ * @param modifier Custom modifier.
+ * @param anchorPositionInPixels Anchor position in pixel from root.
+ * @param visibleState Visibility state.
+ * @param gravity Gravity of ToolTip.
+ * @param margin Margin of ToolTip.
+ * @param animState Animation state for Animation.
+ * @param dismissOnTouchOutside Dismiss when clicking outside.
+ * @param toolTipStyle ToolTip custom style.
+ * @param toolTipContent ToolTip custom content.
+ */
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun ToolTip(
@@ -103,6 +114,20 @@ fun ToolTip(
 
 }
 
+/**
+ * @param anchorEdge Anchor edge.
+ * @param enterTransition Enter animation transition.
+ * @param exitTransition Exit animation transition.
+ * @param modifier Custom modifier.
+ * @param visible ToolTip visibility.
+ * @param tooltipStyle Custom ToolTip style.
+ * @param tipPosition ToolTip position.
+ * @param anchorPosition Anchor position.
+ * @param margin Margin.
+ * @param onDismissRequest Dismiss callback.
+ * @param properties Popup properties.
+ * @param content ToolTip custom content.
+ */
 @ExperimentalAnimationApi
 @Composable
 fun Tooltip(

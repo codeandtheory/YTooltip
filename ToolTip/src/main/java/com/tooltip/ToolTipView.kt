@@ -44,22 +44,22 @@ import com.tooltip.utils.BOTTOM_ANIM_START_POS
 import com.tooltip.utils.BOTTOM_ANIM_END_POS
 
 /**
- * @param modifier Custom modifier
- * @param hintText ToolTipHint text
- * @param hintTextColor ToolTipHint text color
- * @param hintBackgroundColor ToolTipHint background color
- * @param isHintVisible ToolTipHint visibility
- * @param visibleHintCoordinates ToolTipHint coordinate visibility
- * @param hintGravity ToolTipHint gravity
- * @param dismissHintText ToolTipHint dismiss text
- * @param dismissHintTextColor ToolTipHint dismiss text color
- * @param isDismissButtonHide ToolTipHint dismiss button visibility
- * @param margin ToolTipHint margin
- * @param verticalPadding ToolTipHint vertical padding
- * @param horizontalPadding ToolTipHint horizontal padding
- * @param dismissOnTouchOutside ToolTipHint dismiss on touch outside
- * @param customHintContent ToolTipHint custom content
- * @param customViewClickable ToolTipHint custom view click
+ * @param modifier Custom modifier.
+ * @param hintText ToolTipHint text.
+ * @param hintTextColor ToolTipHint text color.
+ * @param hintBackgroundColor ToolTipHint background color.
+ * @param isHintVisible ToolTipHint visibility.
+ * @param visibleHintCoordinates ToolTipHint coordinate visibility.
+ * @param hintGravity ToolTipHint gravity.
+ * @param dismissHintText ToolTipHint dismiss text.
+ * @param dismissHintTextColor ToolTipHint dismiss text color.
+ * @param isDismissButtonHide ToolTipHint dismiss button visibility.
+ * @param margin ToolTipHint margin.
+ * @param verticalPadding ToolTipHint vertical padding.
+ * @param horizontalPadding ToolTipHint horizontal padding.
+ * @param dismissOnTouchOutside ToolTipHint dismiss on touch outside.
+ * @param customHintContent ToolTipHint custom content.
+ * @param customViewClickable ToolTipHint custom view click.
  */
 
 @Composable

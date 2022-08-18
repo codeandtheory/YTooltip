@@ -11,6 +11,15 @@ import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.ToolTipHorizontalEdge
 import com.tooltip.core.ToolTipVerticalEdge
 
+
+/**
+ * Predict the Anchor Edge
+ *
+ * @param anchorEdgeState Anchor edge state
+ * @param yPosition Y position .
+ * @param gravity ToolTip gravity.
+ * @param maxHeightOfTooltip Maximum height of ToolTip.
+ */
 @Composable
 fun PredictAnchorEdge(
     anchorEdgeState: MutableState<ToolTipAnchorEdgeView>,
@@ -48,6 +57,14 @@ fun PredictAnchorEdge(
     }
 }
 
+
+/**
+ * Predict Tip position
+ *
+ * @param tipPosition Tip position.
+ * @param xPosition X position.
+ * @param maxWidthPercent Maximum width of tooltip in percentage.
+ */
 @Composable
 fun PredictTipPosition(
     tipPosition: ToolTipEdgePosition,

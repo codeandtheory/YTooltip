@@ -5,6 +5,9 @@ import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.unit.IntSize
 
+/**
+ * Calculate coordinate position from X and Y
+ * */
 fun LayoutCoordinates.calculatePosition(): IntSize {
     val start = positionInWindow().x
     val width = size.width
@@ -18,6 +21,9 @@ fun LayoutCoordinates.calculatePosition(): IntSize {
     )
 }
 
+/**
+ * Status bar height from resourceId
+ * */
 fun Resources.getStatusBarHeight(): Int {
     var statusBarHeight = 0
     val resourceId = getIdentifier("status_bar_height", "dimen", "android")
