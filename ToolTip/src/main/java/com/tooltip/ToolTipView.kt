@@ -43,7 +43,6 @@ import com.tooltip.utils.END_ANIM_END_POS
 import com.tooltip.utils.BOTTOM_ANIM_START_POS
 import com.tooltip.utils.BOTTOM_ANIM_END_POS
 
-
 /**
  * @param modifier Custom modifier
  * @param hintText ToolTipHint text
@@ -62,6 +61,7 @@ import com.tooltip.utils.BOTTOM_ANIM_END_POS
  * @param customHintContent ToolTipHint custom content
  * @param customViewClickable ToolTipHint custom view click
  */
+
 @Composable
 fun ToolTipView(
     modifier: Modifier = Modifier,
@@ -133,7 +133,6 @@ fun ToolTipView(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = iconArrangement
     ) {
-
         var modifierNew = modifier
 
         if (customHintContent == null) {
