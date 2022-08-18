@@ -69,7 +69,7 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
                             )
                             top.linkTo(contentContainer.bottom)
                         }
-                        .padding(start = tipPadding, end = tipPadding)
+                        .padding(horizontal = tipPadding)
                 ) {
                     tip()
                 }

@@ -79,7 +79,7 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
                             )
                             start.linkTo(contentContainer.end)
                         }
-                        .padding(top = tipPadding, bottom = tipPadding)
+                        .padding(vertical = tipPadding)
                 ) {
                     tip()
                 }
