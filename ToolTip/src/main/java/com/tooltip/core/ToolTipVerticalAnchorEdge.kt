@@ -39,13 +39,13 @@ abstract class ToolTipVerticalAnchorEdge : ToolTipAnchorEdgeView() {
         popupContentSize: IntSize
     ): Float = with(density) {
         val contactPointY = anchorBounds.top +
-                anchorBounds.height * anchorPosition.percent +
-                anchorPosition.offset.toPx()
+                anchorBounds.height * anchorPosition.toolTipPercent +
+                anchorPosition.toolTipOffset.toPx()
         val tangentHeight = (tooltipStyle.cornerRadius * 2 +
-                tipPosition.offset.absoluteValue * 2 +
+                tipPosition.toolTipOffset.absoluteValue * 2 +
                 max(tooltipStyle.tipWidth, tooltipStyle.tipHeight)).toPx()
         val tangentY = contactPointY - tangentHeight / 2
-        val tipMarginY = (popupContentSize.height - tangentHeight) * tipPosition.percent
+        val tipMarginY = (popupContentSize.height - tangentHeight) * tipPosition.toolTipPercent
         return tangentY - tipMarginY
     }
 }

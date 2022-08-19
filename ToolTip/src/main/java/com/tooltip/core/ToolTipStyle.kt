@@ -12,15 +12,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * @param hintText Hint text,
- * @param hintTextColor Hint text color,
- * @param isHintVisible Hint visibility ,
- * @param dismissHintText Dismiss text ,
- * @param dismissHintTextColor Dismiss text color,
- * @param isDismissButtonHide Dismiss button visibility,
- * @param animState Animation state,
+ * @param color ToolTip background color.
+ * @param cornerRadius ToolTip cornerRadius.
+ * @param tipWidth ToolTip width.
+ * @param tipHeight ToolTip height.
+ * @param contentPadding Content padding inside ToolTip.
  * */
-
 class TooltipStyle internal constructor(
     color: Color,
     cornerRadius: Dp,

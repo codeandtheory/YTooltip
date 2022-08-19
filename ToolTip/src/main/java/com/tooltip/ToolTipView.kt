@@ -53,7 +53,7 @@ import com.tooltip.utils.BOTTOM_ANIM_END_POS
  * @param hintGravity ToolTipHint gravity.
  * @param dismissHintText ToolTipHint dismiss text.
  * @param dismissHintTextColor ToolTipHint dismiss text color.
- * @param isDismissButtonHide ToolTipHint dismiss button visibility.
+ * @param isDismissButtonHidden ToolTipHint dismiss button visibility.
  * @param margin ToolTipHint margin.
  * @param verticalPadding ToolTipHint vertical padding.
  * @param horizontalPadding ToolTipHint horizontal padding.
@@ -73,7 +73,7 @@ fun ToolTipView(
     hintGravity: ToolTipGravity = ToolTipGravity.NONE,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
-    isDismissButtonHide: Boolean = false,
+    isDismissButtonHidden: Boolean = false,
     margin: Dp = DEFAULT_MARGIN,
     verticalPadding: Dp = DEFAULT_PADDING,
     horizontalPadding: Dp = DEFAULT_PADDING,
@@ -153,7 +153,7 @@ fun ToolTipView(
             isHintVisible = isHintVisible,
             hintGravity = hintGravity,
             customHintContent = customHintContent,
-            isDismissButtonHide = isDismissButtonHide,
+            isDismissButtonHidden = isDismissButtonHidden,
             margin = margin,
             verticalPadding = verticalPadding,
             horizontalPadding = horizontalPadding,

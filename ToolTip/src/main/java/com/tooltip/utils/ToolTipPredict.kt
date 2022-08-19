@@ -83,18 +83,18 @@ fun PredictTipPosition(
         if (anchorPosInDp >= horizontalCenterDp) {
             val spaceToRightOfAnchor = screenWidthDp - anchorPosInDp - TOOLTIP_ADDITIONAL_PADDING
             if (spaceToRightOfAnchor > maxWidthOfTooltip / 2) {
-                tipPosition.percent = TIP_POS_PERCENT_CENTER
+                tipPosition.toolTipPercent = TIP_POS_PERCENT_CENTER
             } else {
-                tipPosition.percent = anchorPosInDp / screenWidthDp
+                tipPosition.toolTipPercent = anchorPosInDp / screenWidthDp
             }
 
         } else {
             val spaceToLeftOfAnchor = anchorPosInDp - TOOLTIP_ADDITIONAL_PADDING
 
             if (spaceToLeftOfAnchor > maxWidthOfTooltip / 2) {
-                tipPosition.percent = TIP_POS_PERCENT_CENTER
+                tipPosition.toolTipPercent = TIP_POS_PERCENT_CENTER
             } else {
-                tipPosition.percent = anchorPosInDp / screenWidthDp
+                tipPosition.toolTipPercent = anchorPosInDp / screenWidthDp
             }
         }
     }

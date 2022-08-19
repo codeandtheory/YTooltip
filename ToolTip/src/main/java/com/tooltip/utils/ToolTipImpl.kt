@@ -29,7 +29,7 @@ fun ToolTipAnchorEdgeView.TooltipImpl(
     modifier: Modifier = Modifier,
     content: @Composable (RowScope.() -> Unit)
 ) {
-    AnchorEdgeViewTooltipContainer(
+    anchorEdgeViewTooltipContainer(
         modifier = modifier,
         cornerRadius = tooltipStyle.cornerRadius,
         tipPosition = tipPosition,

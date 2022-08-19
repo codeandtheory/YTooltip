@@ -28,7 +28,7 @@ import com.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
  * @param isHintVisible Hint visibility .
  * @param dismissHintText Dismiss text .
  * @param dismissHintTextColor Dismiss text color.
- * @param isDismissButtonHide Dismiss button visibility.
+ * @param isDismissButtonHidden Dismiss button visibility.
  * @param animState Animation state.
  * */
 @Composable
@@ -38,7 +38,7 @@ fun DefaultToolTipView(
     isHintVisible: MutableState<Boolean>,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
-    isDismissButtonHide: Boolean = false,
+    isDismissButtonHidden: Boolean = false,
     animState: MutableState<ItemPosition>? = null,
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
@@ -55,7 +55,7 @@ fun DefaultToolTipView(
                 .padding(DEFAULT_PADDING)
                 .widthIn(max = (TOOLTIP_MAX_WIDTH_PERCENT * screenWidth).dp)
         )
-        if (!isDismissButtonHide)
+        if (!isDismissButtonHidden)
             Text(
                 text = dismissHintText,
                 color = dismissHintTextColor,

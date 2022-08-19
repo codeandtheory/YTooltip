@@ -44,14 +44,14 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
         }
 
         @Composable
-        override fun AnchorEdgeViewTooltipContainer(
+        override fun anchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: ToolTipEdgePosition,
             tip: @Composable () -> Unit,
             content: @Composable () -> Unit
         ) {
-            val tipPositionOffset = tipPosition.offset
+            val tipPositionOffset = tipPosition.toolTipOffset
             ConstraintLayout(modifier = modifier) {
                 val (contentContainer, tipContainer) = createRefs()
                 Box(
@@ -75,7 +75,7 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
                             linkTo(
                                 contentContainer.top,
                                 contentContainer.bottom,
-                                bias = tipPosition.percent
+                                bias = tipPosition.toolTipPercent
                             )
                             start.linkTo(contentContainer.end)
                         }
@@ -86,7 +86,7 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
             }
         }
 
-        override fun popupPositionCalculate(
+        override fun popupPositionCalculation(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: ToolTipEdgePosition,
@@ -138,14 +138,14 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
         }
 
         @Composable
-        override fun AnchorEdgeViewTooltipContainer(
+        override fun anchorEdgeViewTooltipContainer(
             modifier: Modifier,
             cornerRadius: Dp,
             tipPosition: ToolTipEdgePosition,
             tip: @Composable () -> Unit,
             content: @Composable () -> Unit
         ) {
-            val tipPositionOffset = tipPosition.offset
+            val tipPositionOffset = tipPosition.toolTipOffset
             ConstraintLayout(modifier = modifier) {
                 val (contentContainer, tipContainer) = createRefs()
                 Box(
@@ -169,7 +169,7 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
                             linkTo(
                                 contentContainer.top,
                                 contentContainer.bottom,
-                                bias = tipPosition.percent
+                                bias = tipPosition.toolTipPercent
                             )
                             end.linkTo(contentContainer.start)
                         }
@@ -180,7 +180,7 @@ sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
             }
         }
 
-        override fun popupPositionCalculate(
+        override fun popupPositionCalculation(
             density: Density,
             tooltipStyle: TooltipStyle,
             tipPosition: ToolTipEdgePosition,

@@ -31,7 +31,7 @@ import com.tooltip.utils.calculatePosition
  * @param hintGravity ToolTipHint gravity.
  * @param dismissHintText ToolTipHint dismiss text.
  * @param dismissHintTextColor ToolTipHint dismiss text color.
- * @param isDismissButtonHide ToolTipHint dismiss button visibility.
+ * @param isDismissButtonHidden ToolTipHint dismiss button visibility.
  * @param customHintContent ToolTipHint custom content.
  * @param margin ToolTipHint margin.
  * @param verticalPadding ToolTipHint vertical padding.
@@ -50,7 +50,7 @@ fun ToolTipHintView(
     hintGravity: ToolTipGravity,
     dismissHintText: String = CLOSE_STRING,
     dismissHintTextColor: Color = Color.White,
-    isDismissButtonHide: Boolean = false,
+    isDismissButtonHidden: Boolean = false,
     customHintContent: (@Composable (RowScope) -> Unit)? = null,
     margin: Dp = DEFAULT_MARGIN,
     verticalPadding: Dp = DEFAULT_PADDING,
@@ -102,7 +102,7 @@ fun ToolTipHintView(
                     dismissHintTextColor = dismissHintTextColor,
                     isHintVisible = isHintVisible,
                     dismissHintText = dismissHintText,
-                    isDismissButtonHide = isDismissButtonHide,
+                    isDismissButtonHidden = isDismissButtonHidden,
                 )
             }
         )

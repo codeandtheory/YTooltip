@@ -43,22 +43,22 @@ abstract class ToolTipHorizontalAnchorEdge : ToolTipAnchorEdgeView() {
     ): Float = with(density) {
         val contactPointX = if (layoutDirection == LayoutDirection.Ltr) {
             anchorBounds.left +
-                    anchorBounds.width * anchorPosition.percent +
-                    anchorPosition.offset.toPx()
+                    anchorBounds.width * anchorPosition.toolTipPercent +
+                    anchorPosition.toolTipOffset.toPx()
         } else {
             anchorBounds.right -
-                    anchorBounds.width * anchorPosition.percent -
-                    anchorPosition.offset.toPx()
+                    anchorBounds.width * anchorPosition.toolTipPercent -
+                    anchorPosition.toolTipOffset.toPx()
         }
         val tangentWidth = (tooltipStyle.cornerRadius * 2 +
-                tipPosition.offset.absoluteValue * 2 +
+                tipPosition.toolTipOffset.absoluteValue * 2 +
                 max(tooltipStyle.tipWidth, tooltipStyle.tipHeight)).toPx()
         val tangentLeft = contactPointX - tangentWidth / 2
         val tipMarginLeft = (popupContentSize.width - tangentWidth) *
                 if (layoutDirection == LayoutDirection.Ltr) {
-                    tipPosition.percent
+                    tipPosition.toolTipPercent
                 } else {
-                    1f - tipPosition.percent
+                    1f - tipPosition.toolTipPercent
                 }
         return tangentLeft - tipMarginLeft
     }

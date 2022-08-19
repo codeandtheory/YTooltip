@@ -12,7 +12,7 @@ import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.TooltipStyle
 
 /**
- * @param density Custom density.
+ * @param density Custom local density.
  * @param anchorEdge AnchorEdge view.
  * @param tooltipStyle Custom tooltip style.
  * @param tipPosition Tip position.
@@ -34,7 +34,7 @@ class TooltipPopupPositionProvider(
         windowSize: IntSize,
         layoutDirection: LayoutDirection,
         popupContentSize: IntSize
-    ): IntOffset = anchorEdge.popupPositionCalculate(
+    ): IntOffset = anchorEdge.popupPositionCalculation(
         density,
         tooltipStyle,
         tipPosition,
