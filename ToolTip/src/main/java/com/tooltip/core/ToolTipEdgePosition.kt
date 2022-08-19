@@ -8,10 +8,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * Specifies a position on an edge.
+ * Specifies a position on an ToolTipEdge.
  */
-
-
 class ToolTipEdgePosition(
     @FloatRange(from = 0.0, to = 1.0)
     toolTipEdgePercent: Float = 0.5f,

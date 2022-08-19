@@ -12,6 +12,15 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 
+/**
+ * Specifies a [ToolTipAnchorEdgeView].
+ * @property [anchorEdgeViewTooltipContainer] - it provide container
+ * @property [popupPositionCalculation] - it calculate popupPosition
+ * @property [selectWidth] - select width for horizontal and vertical edge
+ * @property [selectHeight] - select height for horizontal and vertical edge
+ * @property [minSize] - find miniSize of horizontal and vertical edge
+ * @property [drawTip] - draw Tip on layoutDirection with size
+ */
 abstract class ToolTipAnchorEdgeView {
 
     /**

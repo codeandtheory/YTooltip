@@ -32,6 +32,9 @@ abstract class ToolTipHorizontalAnchorEdge : ToolTipAnchorEdgeView() {
         return widthIn(min = cornerRadius * 2 + max(tipWidth, tipHeight))
     }
 
+    /**
+     * Calculate the X position for Horizontal Edge
+     * */
     protected fun calculatePopupPositionX(
         density: Density,
         layoutDirection: LayoutDirection,

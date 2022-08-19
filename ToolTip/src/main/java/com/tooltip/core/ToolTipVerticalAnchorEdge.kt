@@ -30,6 +30,9 @@ abstract class ToolTipVerticalAnchorEdge : ToolTipAnchorEdgeView() {
         return heightIn(min = cornerRadius * 2 + max(tipWidth, tipHeight))
     }
 
+    /**
+     * Calculate the Y position for Vertical Edge
+     * */
     protected fun calculatePopupPositionY(
         density: Density,
         anchorBounds: IntRect,
