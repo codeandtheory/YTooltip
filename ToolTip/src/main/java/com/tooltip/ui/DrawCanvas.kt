@@ -20,6 +20,7 @@ import com.tooltip.utils.TRANSPARENT_ALPHA
  * @param viewOffsetSize Offset size to tip coordinate .
  * @param cornerRadius Corner radius for focus area.
  * @param padding Padding for offset.
+ * @param backgroundTransparency Transparency for screen background.
  */
 @Composable
 fun DrawCanvas(
@@ -27,6 +28,7 @@ fun DrawCanvas(
     viewOffset: Offset,
     viewOffsetSize: IntSize,
     cornerRadius: Float,
+    backgroundTransparency: Float = TRANSPARENT_ALPHA,
     padding: Float
 ) {
     val vOffsetSize = Size(
@@ -45,7 +47,7 @@ fun DrawCanvas(
             }
     ) {
         drawRect(
-            color = if (anyHintVisible) Color.Black.copy(TRANSPARENT_ALPHA) else Color.Transparent,
+            color = if (anyHintVisible) Color.Black.copy(backgroundTransparency) else Color.Transparent,
         )
         drawRoundRect(
             size = vOffsetSize,
