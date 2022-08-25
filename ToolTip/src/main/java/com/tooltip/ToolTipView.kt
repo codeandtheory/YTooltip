@@ -1,5 +1,6 @@
 package com.tooltip
 
+
 import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -7,7 +8,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.Icon
@@ -80,11 +80,13 @@ fun ToolTipView(
     dismissOnTouchOutside: Boolean = false,
     customHintContent: (@Composable (RowScope) -> Unit)? = null,
     customViewClickable: (@Composable () -> Unit)? = null,
+    onClick: (() -> Unit)? = null,
 ) {
     val iconArrangement: Arrangement.Horizontal
     val animState = remember { mutableStateOf(ItemPosition.Start) }
     val offsetAnim: Dp
     val absoluteOffset: AbsoluteOffset
+    var layoutCoordinates: LayoutCoordinates? = null
 
     when (hintGravity) {
         ToolTipGravity.START -> {
@@ -130,7 +132,7 @@ fun ToolTipView(
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier/*.fillMaxWidth()*/,
         horizontalArrangement = iconArrangement
     ) {
         var modifierNew = modifier
@@ -171,6 +173,7 @@ fun ToolTipView(
                                 .toString()
                         )
                         Log.d("onGloballyPositioned", it.size.toString())
+                        layoutCoordinates = it
                         visibleHintCoordinates.value = it
                     }
                     .clickable {
@@ -178,6 +181,10 @@ fun ToolTipView(
                         animState.value = when (animState.value) {
                             ItemPosition.Start -> ItemPosition.Finish
                             ItemPosition.Finish -> ItemPosition.Start
+                        }
+                        onClick?.let {
+                            it()
+                            visibleHintCoordinates.value = layoutCoordinates
                         }
                     }) {
                 if (customViewClickable != null) {
