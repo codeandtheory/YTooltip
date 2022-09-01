@@ -13,7 +13,7 @@ import com.tooltip.core.ToolTipVerticalEdge
 
 
 /**
- * Predict the Anchor Edge
+ * Component that allow you to Predict the Anchor Edge according to Gravity.
  *
  * @param anchorEdgeState Anchor edge state
  * @param yPosition Y position .

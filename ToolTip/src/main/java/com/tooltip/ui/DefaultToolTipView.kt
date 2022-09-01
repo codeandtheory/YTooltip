@@ -22,7 +22,14 @@ import com.tooltip.utils.MAX_LINE
 import com.tooltip.utils.DEFAULT_PADDING
 import com.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
 
+
 /**
+ * Component that allow you to show default ToolTip view.
+ * <p>
+ * DefaultToolTipView Composable function will return @Composable (RowScope).
+ * @Composable (RowScope) contains ToolTip's default content.
+ *
+ *
  * @param hintText Hint text.
  * @param hintTextColor Hint text color.
  * @param isHintVisible Hint visibility .

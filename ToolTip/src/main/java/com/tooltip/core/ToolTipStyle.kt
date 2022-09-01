@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
+ * @class TooltipStyle is used to styling Tooltip.
+ *
  * @param color ToolTip background color.
  * @param cornerRadius ToolTip cornerRadius.
  * @param tipWidth ToolTip width.
@@ -37,6 +39,8 @@ class TooltipStyle internal constructor(
 }
 
 /**
+ * @function rememberTooltipStyle is used to remember styling state of Tooltip.
+ *
  * @param color ToolTip color.
  * @param cornerRadius ToolTip corner radius.
  * @param tipWidth ToolTip width.

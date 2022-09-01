@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.min
 
 
 /**
+ * @class ToolTipHorizontalAnchorEdge is child class of @class ToolTipAnchorEdgeView.
  * ToolTipHorizontalAnchorEdge is to set HorizontalAnchorEdge
  * @selectWidth - It will gives the minimum from width or height of Tip
  * @selectHeight - It will gives the maximum from width or height of Tip

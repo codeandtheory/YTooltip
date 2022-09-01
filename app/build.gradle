@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'jacoco'
 }
+
 
 android {
     compileSdk 32
@@ -24,7 +26,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug { testCoverageEnabled true }
+
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -46,21 +51,33 @@ android {
 }
 
 dependencies {
-
     implementation(Deps.core_ktx)
-    implementation (Deps.compose_ui)
-    implementation (Deps.compose_material)
-    implementation (Deps.compose_preview)
-    implementation (Deps.androidx_lifecycle)
-    implementation (Deps.androidx_activity_compose)
+    implementation(Deps.compose_ui)
+    implementation(Deps.compose_material)
+    implementation(Deps.compose_preview)
+    implementation(Deps.androidx_lifecycle)
+    implementation(Deps.androidx_activity_compose)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.ext_junit)
     androidTestImplementation(Deps.espresso_core)
     androidTestImplementation(Deps.ui_test_junit)
-    debugImplementation (Deps.ui_tooling)
-    debugImplementation (Deps.ui_test_manifest)
+    debugImplementation(Deps.ui_tooling)
+    debugImplementation(Deps.ui_test_manifest)
+    implementation(Deps.kotlin_stdlib)
 
-    implementation (Deps.kotlin_stdlib)
+    implementation "androidx.navigation:navigation-compose:2.5.1"
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation "com.google.accompanist:accompanist-glide:0.10.0"
+
+
+    implementation project(path: ':ToolTip')
+
+    //noinspection GradlePath
+    api files('libs/android-release.aar')
+    //noinspection GradlePath
+    implementation files('libs/core-2.0.0.jar')
+    implementation files('libs/core-jvm-2.0.0.jar')
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
 
 }

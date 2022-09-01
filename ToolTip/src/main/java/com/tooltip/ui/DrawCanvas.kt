@@ -14,7 +14,16 @@ import androidx.compose.ui.unit.IntSize
 import com.tooltip.utils.SCREEN_ALPHA
 import com.tooltip.utils.TRANSPARENT_ALPHA
 
+
 /**
+ * Component that allow you to highlight specific item and draw overlay.
+ * <p>
+ * DrawCanvas Composable function will return @Composable (DrawScope).
+ * @Composable (DrawScope) used to draw Canvas for highlight specific item and draw overlay.
+ * drawRect is used to draw overlay.
+ * drawRoundRect is used to highlight area.
+ *
+ *
  * @param anyHintVisible Hint visibility
  * @param viewOffset Offset from root.
  * @param viewOffsetSize Offset size to tip coordinate .

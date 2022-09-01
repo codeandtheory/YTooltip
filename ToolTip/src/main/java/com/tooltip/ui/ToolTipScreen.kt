@@ -15,6 +15,15 @@ import com.tooltip.utils.DEFAULT_SCREEN_PADDING
 import com.tooltip.utils.TRANSPARENT_ALPHA
 
 /**
+ * Component that allow you to highlight specific item and show overlay.
+ * <p>
+ * ToolTipScreen Composable function will return @Composable (BoxScope).
+ * @Composable (BoxScope) contains mainContent and DrawCanvas.
+ * You MUST provide the value to @param mainContent.
+ * @function mainContent is used to show content of screen with ToolTipView.
+ * DrawCanvas is used to highlight specific item and draw overlay.
+ *
+ *
  * @param modifier Setup modifier.
  * @param mainContent Main screen content.
  * @param paddingHighlightArea Padding for highlighted area.
@@ -51,6 +60,17 @@ fun ToolTipScreen(
     }
 }
 
+
+/**
+ * @function that allow you to highlight specific item and show overlay.
+ * <p>
+ * @function isTipVisible will return MutableState<Boolean>.
+ * You MUST provide the value to @param xs.
+ * @function isTipVisible is used to find visibility of ToolTip on screen.
+ * if one of xs value is true then isTipVisible will return true otherwise false.
+ *
+ * @param xs Setup modifier.
+ */
 @Composable
 fun isTipVisible(vararg xs: MutableState<Boolean>): MutableState<Boolean> {
     var result = remember { mutableStateOf(false) }

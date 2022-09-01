@@ -45,6 +45,14 @@ import com.tooltip.utils.TooltipImpl
 import kotlinx.coroutines.delay
 
 /**
+ * Component that allow you to show ToolTip at specific anchorPosition with custom/default content.
+ * <p>
+ * ToolTip Composable function will return @Composable (RowScope).
+ * @Composable (RowScope) contains ToolTip's custom/default content.
+ * if @param toolTipContent is used to pass custom/default toolTipContent.
+ * if @param onDismissRequest is used to dismiss ToolTip.
+ *
+ *
  * @param modifier Custom modifier.
  * @param anchorPositionInPixels Anchor position in pixel from root.
  * @param visibleState Visibility state.
@@ -71,7 +79,8 @@ fun ToolTip(
     /**
      * Tooltip states
      */
-    val anchorEdgeState = remember { mutableStateOf<ToolTipAnchorEdgeView>(ToolTipHorizontalEdge.Bottom) }
+    val anchorEdgeState =
+        remember { mutableStateOf<ToolTipAnchorEdgeView>(ToolTipHorizontalEdge.Bottom) }
     val tipPosition = remember { ToolTipEdgePosition() }
     val anchorPosition = remember { ToolTipEdgePosition() }
 
@@ -99,11 +108,13 @@ fun ToolTip(
             // visibleState.value = false
         },
         onDismissRequest = {
-            visibleState.value = !dismissOnTouchOutside
-            if (animState != null) {
-                animState.value = when (animState.value) {
-                    ItemPosition.Start -> ItemPosition.Finish
-                    ItemPosition.Finish -> ItemPosition.Start
+            if (dismissOnTouchOutside) {
+                visibleState.value = !dismissOnTouchOutside
+                if (animState != null) {
+                    animState.value = when (animState.value) {
+                        ItemPosition.Start -> ItemPosition.Finish
+                        ItemPosition.Finish -> ItemPosition.Start
+                    }
                 }
             }
         },
@@ -115,6 +126,14 @@ fun ToolTip(
 }
 
 /**
+ * Component that allow you to show ToolTip at specific anchorPosition with custom/default content.
+ * <p>
+ * ToolTip Composable function will return @Composable (RowScope).
+ * @Composable (RowScope) contains ToolTip's custom/default content.
+ * if @param content is used to pass custom/default toolTipContent.
+ * if @param onDismissRequest is used to dismiss ToolTip.
+ *
+ *
  * @param anchorEdge Anchor edge.
  * @param enterTransition Enter animation transition.
  * @param exitTransition Exit animation transition.

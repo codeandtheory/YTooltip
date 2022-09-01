@@ -12,6 +12,10 @@ import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.TooltipStyle
 
 /**
+ * @class TooltipPopupPositionProvider is used to provide Tooltip Popup Position on screen.
+ * @function calculatePosition is used to calculate Tooltip Popup Position on screen.
+ *
+ *
  * @param density Custom local density.
  * @param anchorEdge AnchorEdge view.
  * @param tooltipStyle Custom tooltip style.

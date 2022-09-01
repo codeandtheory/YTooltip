@@ -17,7 +17,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import kotlin.math.roundToInt
 
 /**
- * Setup ToolTipHorizontalEdge direction Top or Bottom
+ * @class ToolTipHorizontalEdge is child class of @class ToolTipHorizontalAnchorEdge.
+ * Setup ToolTipHorizontalEdge to Top or Bottom of Popup.
  * */
 sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
 
@@ -25,7 +26,15 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
      * Setup ToolTipHorizontalEdge Top of Popup
      * */
     object Top : ToolTipHorizontalEdge() {
-
+        /**
+         * @function drawTip that allow you to create a Tip.
+         * This component is used to draw shape for ToolTip.
+         * We can set tooltipStyle for Tip.
+         *
+         *
+         * @param size size of view.
+         * @param layoutDirection Layout direction.
+         */
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
             moveTo(0f, 0f)
             lineTo(size.width, 0f)
@@ -33,6 +42,15 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             lineTo(0f, 0f)
         }
 
+        /**
+         * @function anchorEdgeViewTooltipContainer is used to ToolTip content container.
+         *
+         * @param modifier : Custom modifier.
+         * @param cornerRadius : Setup corner radius.
+         * @param tipPosition : Set toolTip Position.
+         * @param tip : Tip Composable View.
+         * @param content : Content Composable View.
+         * */
         @Composable
         override fun anchorEdgeViewTooltipContainer(
             modifier: Modifier,
@@ -76,6 +94,20 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             }
         }
 
+        /**
+         * @function popupPositionCalculation is used to calculate Tooltip Popup Position at screen.
+         *
+         *
+         * @param density : Custom local density..
+         * @param tooltipStyle : Style for ToolTipStyle.
+         * @param tipPosition : ToolTip Position.
+         * @param anchorPosition : AnchorPosition.
+         * @param margin : Custom margin.
+         * @param anchorBounds : IntRect - Left, Right, Top, Bottom.
+         * @param layoutDirection : LayoutDirection ltr or rtl.
+         * @param popupContentSize : PopupContent size.
+         * @param statusBarHeight : StatusBarHeight.
+         * */
         override fun popupPositionCalculation(
             density: Density,
             tooltipStyle: TooltipStyle,
@@ -107,6 +139,15 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
      * */
     object Bottom : ToolTipHorizontalEdge() {
 
+        /**
+         * @function drawTip that allow you to create a Tip.
+         * This component is used to draw shape for ToolTip.
+         * We can set tooltipStyle for Tip.
+         *
+         *
+         * @param size size of view.
+         * @param layoutDirection Layout direction.
+         */
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
             moveTo(0f, size.height)
             lineTo(size.width / 2f, 0f)
@@ -114,6 +155,15 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             lineTo(0f, size.height)
         }
 
+        /**
+         * @function anchorEdgeViewTooltipContainer is used to ToolTip content container.
+         *
+         * @param modifier : Custom modifier.
+         * @param cornerRadius : Setup corner radius.
+         * @param tipPosition : Set toolTip Position.
+         * @param tip : Tip Composable View.
+         * @param content : Content Composable View.
+         * */
         @Composable
         override fun anchorEdgeViewTooltipContainer(
             modifier: Modifier,
@@ -157,6 +207,20 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             }
         }
 
+        /**
+         * @function popupPositionCalculation is used to calculate Tooltip Popup Position at screen.
+         *
+         *
+         * @param density : Custom local density..
+         * @param tooltipStyle : Style for ToolTipStyle.
+         * @param tipPosition : ToolTip Position.
+         * @param anchorPosition : AnchorPosition.
+         * @param margin : Custom margin.
+         * @param anchorBounds : IntRect - Left, Right, Top, Bottom.
+         * @param layoutDirection : LayoutDirection ltr or rtl.
+         * @param popupContentSize : PopupContent size.
+         * @param statusBarHeight : StatusBarHeight.
+         * */
         override fun popupPositionCalculation(
             density: Density,
             tooltipStyle: TooltipStyle,

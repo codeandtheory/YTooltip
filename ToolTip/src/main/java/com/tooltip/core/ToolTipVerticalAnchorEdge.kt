@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.max
 
 /**
+ * @class ToolTipVerticalAnchorEdge is child class of @class ToolTipAnchorEdgeView.
  * ToolTipVerticalAnchorEdge is to set VerticalAnchorEge
  * @selectWidth - It will gives the minimum from width or height of Tip
  * @selectHeight - It will gives the maximum from width or height of Tip

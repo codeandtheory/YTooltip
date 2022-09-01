@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 
 /**
+ * @class ToolTipAnchorEdgeView is used to ToolTip content container and calculate Tooltip Popup Position on screen.
  * Specifies a [ToolTipAnchorEdgeView].
  * @property [anchorEdgeViewTooltipContainer] - it provide container
  * @property [popupPositionCalculation] - it calculate popupPosition
@@ -24,6 +25,8 @@ import androidx.compose.ui.unit.dp
 abstract class ToolTipAnchorEdgeView {
 
     /**
+     * @function anchorEdgeViewTooltipContainer is used to ToolTip content container.
+     *
      * @param modifier : Custom modifier.
      * @param cornerRadius : Setup corner radius.
      * @param tipPosition : Set toolTip Position.
@@ -40,6 +43,9 @@ abstract class ToolTipAnchorEdgeView {
     )
 
     /**
+     * @function popupPositionCalculation is used to calculate Tooltip Popup Position on screen.
+     *
+     *
      * @param density : Custom local density..
      * @param tooltipStyle : Style for ToolTipStyle.
      * @param tipPosition : ToolTip Position.

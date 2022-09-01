@@ -16,7 +16,7 @@ const val TRANSITION_ENTER = 1
 const val TRANSITION_EXIT = 2
 const val TRANSITION_GONE = 3
 
-const val TRANSPARENT_ALPHA = 0.5f
+const val TRANSPARENT_ALPHA = 0.8f
 const val SCREEN_ALPHA = .99f
 
 const val ANIMATION_DURATION = 1500

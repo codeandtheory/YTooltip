@@ -1,15 +1,10 @@
 package com.tooltip
 
 
-import android.util.Log
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.absoluteOffset
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -22,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.unit.Dp
 import com.tooltip.ui.ToolTipHintView
 import com.tooltip.utils.ToolTipGravity
@@ -44,6 +38,13 @@ import com.tooltip.utils.BOTTOM_ANIM_START_POS
 import com.tooltip.utils.BOTTOM_ANIM_END_POS
 
 /**
+ * Component that allow you to show ToolTip at specific anchorPosition with custom/default content.
+ * <p>
+ * ToolTipView Composable function will return @Composable (RowScope).
+ * @Composable (RowScope) contains a ToolTipHintView with clickable view and click action.
+ * ToolTipHintView will return a ToolTip with custom/default content.
+ *
+ *
  * @param modifier Custom modifier.
  * @param hintText ToolTipHint text.
  * @param hintTextColor ToolTipHint text color.
@@ -132,7 +133,7 @@ fun ToolTipView(
     }
 
     Row(
-        modifier = Modifier/*.fillMaxWidth()*/,
+        modifier = Modifier,
         horizontalArrangement = iconArrangement
     ) {
         var modifierNew = modifier
@@ -166,13 +167,6 @@ fun ToolTipView(
                 contentAlignment = Alignment.Center,
                 modifier = modifier
                     .onGloballyPositioned {
-                        Log.d(
-                            "onGloballyPositioned",
-                            it
-                                .positionInRoot()
-                                .toString()
-                        )
-                        Log.d("onGloballyPositioned", it.size.toString())
                         layoutCoordinates = it
                         visibleHintCoordinates.value = it
                     }

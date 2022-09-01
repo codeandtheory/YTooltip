@@ -15,9 +15,12 @@ import com.tooltip.core.ToolTipEdgePosition
 import com.tooltip.core.TooltipStyle
 
 /**
- * @param tooltipStyle ToolTip Style
+ * Component that allow you to show ToolTip at specific tipPosition with content.
+ * This component is implementation of ToolTip.
+ *
+ * @param tooltipStyle ToolTip style/
  * @param tipPosition ToolTip position.
- * @param anchorEdge Anchor edge view .
+ * @param anchorEdge Anchor edge view.
  * @param modifier Custom modifier.
  * @param content Compose content.
  */
@@ -45,7 +48,12 @@ fun ToolTipAnchorEdgeView.TooltipImpl(
 }
 
 /**
- * @param anchorEdge Anchor edge view
+ * Component that allow you to create a ToolTip content container with ToolTip content.
+ * This component will return a ToolTip content container.
+ * We can set tooltipStyle for ToolTip.
+ *
+ *
+ * @param anchorEdge Anchor edge view.
  * @param tooltipStyle ToolTip style.
  * @param content Compose content.
  */
@@ -75,6 +83,11 @@ fun TooltipContentContainer(
 }
 
 /**
+ * Component that allow you to create a Tip.
+ * This component is used to draw shape for ToolTip.
+ * We can set tooltipStyle for Tip.
+ *
+ *
  * @param anchorEdge Anchor edge view
  * @param tooltipStyle ToolTip style.
  */

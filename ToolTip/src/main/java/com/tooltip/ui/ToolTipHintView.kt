@@ -23,6 +23,14 @@ import com.tooltip.utils.DEFAULT_SIZE
 import com.tooltip.utils.calculatePosition
 
 /**
+ * Component that allow you to show ToolTip with custom/default content.
+ * <p>
+ * ToolTipHintView Composable function will return @Composable (BoxScope).
+ * @Composable (BoxScope) contains a ToolTip with custom/default content.
+ * if @param customHintContent is not null then @ToolTip will return a ToolTip with custom toolTipContent.
+ * if @param customHintContent is null then @ToolTip will return a ToolTip with default toolTipContent.
+ *
+ *
  * @param modifier Custom modifier.
  * @param hintText ToolTipHint text.
  * @param hintTextColor ToolTipHint text color.
