@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">YTooltip</string>
+    <string name="app_name">ToolTip</string>
+    <string name="close">Close</string>
+    <string name="next">Next</string>
+    <string name="info_1">Info 1</string>
+    <string name="info_4">Info 4</string>
+
+    <!--Screen names-->
+    <string name="dashboard">Dashboard</string>
+    <string name="headlines">Top headlines from BBC News</string>
+
+
 </resources>

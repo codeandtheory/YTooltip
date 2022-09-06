@@ -1,17 +1,16 @@
-import com.dependecy.ytooltip.DependencyManager
-import com.dependecy.ytooltip.Version
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'jacoco'
 }
+
 
 android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.app.ytooltip"
-        minSdk 26
+        applicationId "com.yml.tooltip"
+        minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -27,7 +26,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug { testCoverageEnabled true }
+
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -39,7 +41,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Version.COMPOSE_COMPILER
+        kotlinCompilerExtensionVersion compose_version
     }
     packagingOptions {
         resources {
@@ -49,17 +51,33 @@ android {
 }
 
 dependencies {
+    implementation(Deps.core_ktx)
+    implementation(Deps.compose_ui)
+    implementation(Deps.compose_material)
+    implementation(Deps.compose_preview)
+    implementation(Deps.androidx_lifecycle)
+    implementation(Deps.androidx_activity_compose)
 
-    implementation DependencyManager.CORE_KTX
-    implementation DependencyManager.COMPOSE_UI
-    implementation DependencyManager.COMPOSE_MATERIAL
-    implementation DependencyManager.COMPOSE_TOOLING_PREVIEW
-    implementation DependencyManager.RUNTIME_KTX
-    implementation DependencyManager.COMPOSE_ACTIVITY
-    testImplementation DependencyManager.JUNIT
-    androidTestImplementation DependencyManager.TEST_EXTN
-    androidTestImplementation DependencyManager.ESPRESSO_CORE
-    androidTestImplementation DependencyManager.COMPOSE_JUNIT
-    debugImplementation DependencyManager.COMPOSE_UI_TOOLING
-    debugImplementation DependencyManager.COMPOSE_UI_TEST_MANIFEST
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.ext_junit)
+    androidTestImplementation(Deps.espresso_core)
+    androidTestImplementation(Deps.ui_test_junit)
+    debugImplementation(Deps.ui_tooling)
+    debugImplementation(Deps.ui_test_manifest)
+    implementation(Deps.kotlin_stdlib)
+
+    implementation "androidx.navigation:navigation-compose:2.5.1"
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation "com.google.accompanist:accompanist-glide:0.10.0"
+
+
+    implementation project(path: ':ToolTip')
+
+    //noinspection GradlePath
+    api files('libs/android-release.aar')
+    //noinspection GradlePath
+    implementation files('libs/core-2.0.0.jar')
+    implementation files('libs/core-jvm-2.0.0.jar')
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
 }

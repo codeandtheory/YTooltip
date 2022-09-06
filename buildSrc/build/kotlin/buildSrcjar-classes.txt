@@ -1,1 +1,0 @@
-/Volumes/Work/Projects/Android/YTooltip/buildSrc/build/classes/kotlin/main/com/dependecy/ytooltip/DependencyManager.class:/Volumes/Work/Projects/Android/YTooltip/buildSrc/build/classes/kotlin/main/com/dependecy/ytooltip/Version.class
