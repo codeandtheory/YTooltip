@@ -10,13 +10,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url "https://accelerator1.jfrog.io/artifactory/accelerator-gradle-release-local/"
-            credentials {
-                username = "caraca2722@julsard.com"
-                password = "Caraca@2722"
-            }
-        }
     }
 }
 rootProject.name = "YToolTip"
