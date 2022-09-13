@@ -1,7 +1,8 @@
-
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.jfrog.artifactory'
+    id 'maven-publish'
 }
 
 android {
@@ -19,6 +20,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    publishing {
+        singleVariant("release") {
+            // if you don't want sources/javadoc, remove these lines
+            withSourcesJar()
+            withJavadocJar()
         }
     }
     compileOptions {
@@ -42,16 +50,46 @@ dependencies {
     implementation(Deps.core_ktx)
     implementation(Deps.appcompat)
 
-    implementation (Deps.compose_ui)
-    implementation (Deps.compose_material)
+    implementation(Deps.compose_ui)
+    implementation(Deps.compose_material)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.ext_junit)
     androidTestImplementation(Deps.espresso_core)
 
     androidTestImplementation(Deps.ui_test_junit)
-    debugImplementation (Deps.ui_tooling)
-    debugImplementation (Deps.ui_test_manifest)
+    debugImplementation(Deps.ui_tooling)
+    debugImplementation(Deps.ui_test_manifest)
 
-    implementation (Deps.constraintLayout)
+    implementation(Deps.constraintLayout)
+}
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.yml.opensource'
+            artifactId = 'tooltip'
+            version = "1.0.0"
+            afterEvaluate {
+                from components.release
+            }
+        }
+        debug(MavenPublication) {
+            groupId = 'com.yml.opensource'
+            artifactId = 'tooltip'
+            version = "1.0.0-snapshot"
+            afterEvaluate {
+                from components.debug
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "tooltip"
+            url = "https://ymlopensource.jfrog.io/artifactory/ytooltip/"
+            credentials{
+                username = ""
+                password = ""
+            }
+        }
+    }
 }
