@@ -27,6 +27,7 @@ class MainViewModel(private val newsRepository: NewsRepo) : ViewModel() {
                         Log.d("NewsViewModel", "Data fetching success:${it.data.body}")
                         it.data.body?.let { it1 -> _newsByCategoryRes.emit(it1) }
                     }
+                    else -> {}
                 }
             }
         }
