@@ -5,7 +5,7 @@ plugins {
     id 'org.jetbrains.dokka'
 }
 ext {
-    PUBLISH_GROUP_ID = 'com.yml.opensource'
+    PUBLISH_GROUP_ID = 'co.yml'
     PUBLISH_VERSION = '1.0.0'
     PUBLISH_ARTIFACT_ID = 'ytooltip'
 }
