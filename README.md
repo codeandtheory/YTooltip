@@ -1,16 +1,20 @@
-YTooltip is a light and extensible tooltip library for Jetpack Compose system. It has two  modules:
+![Y-Matter Type](https://raw.githubusercontent.com/yml-org/YTooltip/main/art/logo.jpeg?token=GHSAT0AAAAAABYU3Y7IEJMPZP7X4REAOLNIYZLB4CA)
 
- 1- ToolTip (Tooltip components for Jetpack Compose)
+Y-Tooltip is a light and extensible tooltip library for Jetpack Compose system. It has two  modules:
+
+ 1- Tooltip (Tooltip components for Jetpack Compose)
  2- app (sample app to showcase the different usage of tooltip)
-### What is Tool Tip ?
+### What is a Tooltip ?
 
-Tool Tip is the message view which appears near to anchor view, it can have title, icon, and action 
-button. ToolTip view can be uses for guiding the user. 
-Two types of tooltips are available 
+A Tooltip is the message view which appears near to anchor view, it can have title, icon, and action 
+button. A Tooltip view can be used for guiding the user. 
+
+There are two types of tooltips available:
+ 
  1- Tooltip screen.
  2- Tooltip view.
 
-### ToolTipScreen
+### TooltipScreen
 
 When we need screen overlay for full screen then we need to use ToolTipScreen composable as parent 
 component and inside we need to use ToolTipView as child component.
@@ -51,7 +55,7 @@ ToolTipView(
 
 
 ### License
-Copyright 2022 YToolTip
+Copyright 2022 YML
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
