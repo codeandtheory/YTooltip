@@ -1,4 +1,4 @@
-package com.tooltip
+package co.yml.tooltip
 
 
 import androidx.compose.animation.core.animateDpAsState
@@ -18,24 +18,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
-import com.tooltip.ui.ToolTipHintView
-import com.tooltip.utils.ToolTipGravity
-import com.tooltip.utils.AbsoluteOffset
-import com.tooltip.utils.ItemPosition
-import com.tooltip.utils.EMPTY_STRING
-import com.tooltip.utils.CLOSE_STRING
-import com.tooltip.utils.DEFAULT_PADDING
-import com.tooltip.utils.DEFAULT_MARGIN
-import com.tooltip.utils.TOP_ANIM_START_POS
-import com.tooltip.utils.TOP_ANIM_END_POS
-import com.tooltip.utils.CUBIC_BEZIER_EASING
-import com.tooltip.utils.ANIMATION_DURATION
-import com.tooltip.utils.START_ANIM_START_POS
-import com.tooltip.utils.START_ANIM_END_POS
-import com.tooltip.utils.END_ANIM_START_POS
-import com.tooltip.utils.END_ANIM_END_POS
-import com.tooltip.utils.BOTTOM_ANIM_START_POS
-import com.tooltip.utils.BOTTOM_ANIM_END_POS
+import co.yml.tooltip.ui.ToolTipHintView
+import co.yml.tooltip.utils.ANIMATION_DURATION
+import co.yml.tooltip.utils.AbsoluteOffset
+import co.yml.tooltip.utils.BOTTOM_ANIM_END_POS
+import co.yml.tooltip.utils.BOTTOM_ANIM_START_POS
+import co.yml.tooltip.utils.CLOSE_STRING
+import co.yml.tooltip.utils.CUBIC_BEZIER_EASING
+import co.yml.tooltip.utils.DEFAULT_MARGIN
+import co.yml.tooltip.utils.DEFAULT_PADDING
+import co.yml.tooltip.utils.EMPTY_STRING
+import co.yml.tooltip.utils.END_ANIM_END_POS
+import co.yml.tooltip.utils.END_ANIM_START_POS
+import co.yml.tooltip.utils.ItemPosition
+import co.yml.tooltip.utils.START_ANIM_END_POS
+import co.yml.tooltip.utils.START_ANIM_START_POS
+import co.yml.tooltip.utils.TOP_ANIM_END_POS
+import co.yml.tooltip.utils.TOP_ANIM_START_POS
+import co.yml.tooltip.utils.ToolTipGravity
 
 /**
  * Component that allow you to show ToolTip at specific anchorPosition with custom/default content.

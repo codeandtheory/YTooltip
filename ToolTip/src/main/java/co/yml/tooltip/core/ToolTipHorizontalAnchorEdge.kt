@@ -1,4 +1,4 @@
-package com.tooltip.core
+package co.yml.tooltip.core
 
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.ui.Modifier

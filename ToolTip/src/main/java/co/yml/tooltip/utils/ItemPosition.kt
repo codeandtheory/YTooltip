@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 /** enum class ItemPosition is created to handle animation state.
  * */

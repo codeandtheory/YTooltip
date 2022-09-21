@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
@@ -7,9 +7,9 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.window.PopupPositionProvider
-import com.tooltip.core.ToolTipAnchorEdgeView
-import com.tooltip.core.ToolTipEdgePosition
-import com.tooltip.core.TooltipStyle
+import co.yml.tooltip.core.ToolTipAnchorEdgeView
+import co.yml.tooltip.core.ToolTipEdgePosition
+import co.yml.tooltip.core.TooltipStyle
 
 /**
  * @class TooltipPopupPositionProvider is used to provide Tooltip Popup Position on screen.

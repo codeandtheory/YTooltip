@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 import android.content.res.Resources
 import androidx.compose.ui.layout.LayoutCoordinates

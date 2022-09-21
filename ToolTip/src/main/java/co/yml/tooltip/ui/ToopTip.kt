@@ -1,4 +1,4 @@
-package com.tooltip.ui
+package co.yml.tooltip.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.fadeIn
@@ -25,23 +25,23 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.window.PopupProperties
 import androidx.compose.ui.window.Popup
-import com.tooltip.core.TooltipStyle
-import com.tooltip.core.rememberTooltipStyle
-import com.tooltip.core.ToolTipAnchorEdgeView
-import com.tooltip.core.ToolTipHorizontalEdge
-import com.tooltip.core.ToolTipEdgePosition
-import com.tooltip.utils.ItemPosition
-import com.tooltip.utils.ToolTipGravity
-import com.tooltip.utils.PredictAnchorEdge
-import com.tooltip.utils.PredictTipPosition
-import com.tooltip.utils.DEFAULT_MARGIN
-import com.tooltip.utils.TRANSITION_GONE
-import com.tooltip.utils.TRANSITION_INITIALIZE
-import com.tooltip.utils.TRANSITION_EXIT
-import com.tooltip.utils.TRANSITION_ENTER
-import com.tooltip.utils.getStatusBarHeight
-import com.tooltip.utils.TooltipPopupPositionProvider
-import com.tooltip.utils.TooltipImpl
+import co.yml.tooltip.core.ToolTipAnchorEdgeView
+import co.yml.tooltip.core.ToolTipEdgePosition
+import co.yml.tooltip.core.ToolTipHorizontalEdge
+import co.yml.tooltip.core.TooltipStyle
+import co.yml.tooltip.core.rememberTooltipStyle
+import co.yml.tooltip.utils.DEFAULT_MARGIN
+import co.yml.tooltip.utils.ItemPosition
+import co.yml.tooltip.utils.PredictAnchorEdge
+import co.yml.tooltip.utils.PredictTipPosition
+import co.yml.tooltip.utils.TRANSITION_ENTER
+import co.yml.tooltip.utils.TRANSITION_EXIT
+import co.yml.tooltip.utils.TRANSITION_GONE
+import co.yml.tooltip.utils.TRANSITION_INITIALIZE
+import co.yml.tooltip.utils.ToolTipGravity
+import co.yml.tooltip.utils.TooltipImpl
+import co.yml.tooltip.utils.TooltipPopupPositionProvider
+import co.yml.tooltip.utils.getStatusBarHeight
 import kotlinx.coroutines.delay
 
 /**

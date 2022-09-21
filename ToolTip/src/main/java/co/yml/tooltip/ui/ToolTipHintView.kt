@@ -1,7 +1,6 @@
-package com.tooltip.ui
+package co.yml.tooltip.ui
 
 import androidx.compose.runtime.Composable
-import com.tooltip.utils.EMPTY_STRING
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Box
@@ -13,14 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
-import com.tooltip.core.rememberTooltipStyle
-import com.tooltip.utils.ItemPosition
-import com.tooltip.utils.ToolTipGravity
-import com.tooltip.utils.CLOSE_STRING
-import com.tooltip.utils.DEFAULT_PADDING
-import com.tooltip.utils.DEFAULT_MARGIN
-import com.tooltip.utils.DEFAULT_SIZE
-import com.tooltip.utils.calculatePosition
+import co.yml.tooltip.core.rememberTooltipStyle
+import co.yml.tooltip.utils.CLOSE_STRING
+import co.yml.tooltip.utils.DEFAULT_MARGIN
+import co.yml.tooltip.utils.DEFAULT_PADDING
+import co.yml.tooltip.utils.DEFAULT_SIZE
+import co.yml.tooltip.utils.EMPTY_STRING
+import co.yml.tooltip.utils.ItemPosition
+import co.yml.tooltip.utils.ToolTipGravity
+import co.yml.tooltip.utils.calculatePosition
 
 /**
  * Component that allow you to show ToolTip with custom/default content.

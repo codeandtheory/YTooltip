@@ -1,4 +1,4 @@
-package com.tooltip.core
+package co.yml.tooltip.core
 
 import androidx.annotation.FloatRange
 import androidx.compose.runtime.getValue

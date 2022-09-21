@@ -1,7 +1,6 @@
-package com.tooltip.ui
+package co.yml.tooltip.ui
 
 import androidx.compose.runtime.Composable
-import com.tooltip.utils.EMPTY_STRING
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Arrangement
@@ -16,11 +15,12 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import com.tooltip.utils.ItemPosition
-import com.tooltip.utils.CLOSE_STRING
-import com.tooltip.utils.MAX_LINE
-import com.tooltip.utils.DEFAULT_PADDING
-import com.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
+import co.yml.tooltip.utils.CLOSE_STRING
+import co.yml.tooltip.utils.DEFAULT_PADDING
+import co.yml.tooltip.utils.EMPTY_STRING
+import co.yml.tooltip.utils.ItemPosition
+import co.yml.tooltip.utils.MAX_LINE
+import co.yml.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
 
 
 /**

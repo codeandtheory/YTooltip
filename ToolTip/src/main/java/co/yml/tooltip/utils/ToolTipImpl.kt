@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,9 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.tooltip.core.ToolTipAnchorEdgeView
-import com.tooltip.core.ToolTipEdgePosition
-import com.tooltip.core.TooltipStyle
+import co.yml.tooltip.core.ToolTipAnchorEdgeView
+import co.yml.tooltip.core.ToolTipEdgePosition
+import co.yml.tooltip.core.TooltipStyle
+
 
 /**
  * Component that allow you to show ToolTip at specific tipPosition with content.

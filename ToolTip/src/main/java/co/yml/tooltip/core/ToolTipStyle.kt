@@ -1,4 +1,4 @@
-package com.tooltip.core
+package co.yml.tooltip.core
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.MaterialTheme

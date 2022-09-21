@@ -1,4 +1,4 @@
-package com.tooltip.core
+package co.yml.tooltip.core
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -17,15 +17,15 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import kotlin.math.roundToInt
 
 /**
- * @class ToolTipHorizontalEdge is child class of @class ToolTipHorizontalAnchorEdge.
- * Setup ToolTipHorizontalEdge to Top or Bottom of Popup.
+ * @class ToolTipVerticalEdge is child class of @class ToolTipVerticalAnchorEdge.
+ * Setup ToolTipVerticalEdge to Start or End of Popup.
  * */
-sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
+sealed class ToolTipVerticalEdge : ToolTipVerticalAnchorEdge() {
 
     /**
-     * Setup ToolTipHorizontalEdge Top of Popup
+     * ToolTipVerticalEdge set to Start of PopUp
      * */
-    object Top : ToolTipHorizontalEdge() {
+    object Start : ToolTipVerticalEdge() {
         /**
          * @function drawTip that allow you to create a Tip.
          * This component is used to draw shape for ToolTip.
@@ -36,10 +36,20 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
          * @param layoutDirection Layout direction.
          */
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
-            moveTo(0f, 0f)
-            lineTo(size.width, 0f)
-            lineTo(size.width / 2f, size.height)
-            lineTo(0f, 0f)
+            when (layoutDirection) {
+                LayoutDirection.Ltr -> {
+                    moveTo(0f, 0f)
+                    lineTo(size.width, size.height / 2f)
+                    lineTo(0f, size.height)
+                    lineTo(0f, 0f)
+                }
+                LayoutDirection.Rtl -> {
+                    moveTo(size.width, 0f)
+                    lineTo(0f, size.height / 2f)
+                    lineTo(size.width, size.height)
+                    lineTo(size.width, 0f)
+                }
+            }
         }
 
         /**
@@ -67,11 +77,11 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
                         .constrainAs(contentContainer) {
                             start.linkTo(parent.start)
                             top.linkTo(parent.top)
-                            end.linkTo(parent.end)
+                            bottom.linkTo(parent.bottom)
                         }
                         .padding(
-                            start = if (tipPositionOffset < 0.dp) tipPositionOffset * -2 else 0.dp,
-                            end = if (tipPositionOffset > 0.dp) tipPositionOffset * 2 else 0.dp
+                            top = if (tipPositionOffset < 0.dp) tipPositionOffset * -2 else 0.dp,
+                            bottom = if (tipPositionOffset > 0.dp) tipPositionOffset * 2 else 0.dp
                         )
                 ) {
                     content()
@@ -81,13 +91,13 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
                     modifier = Modifier
                         .constrainAs(tipContainer) {
                             linkTo(
-                                contentContainer.start,
-                                contentContainer.end,
+                                contentContainer.top,
+                                contentContainer.bottom,
                                 bias = tipPosition.toolTipPercent
                             )
-                            top.linkTo(contentContainer.bottom)
+                            start.linkTo(contentContainer.end)
                         }
-                        .padding(horizontal = tipPadding)
+                        .padding(vertical = tipPadding)
                 ) {
                     tip()
                 }
@@ -119,26 +129,28 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             popupContentSize: IntSize,
             statusBarHeight: Int
         ): IntOffset = with(density) {
-            val x = calculatePopupPositionX(
+            val y = calculatePopupPositionY(
                 density,
-                layoutDirection,
                 anchorBounds,
                 anchorPosition,
                 tooltipStyle,
                 tipPosition,
                 popupContentSize
             )
-            val y = anchorBounds.top - margin.toPx() - popupContentSize.height
+            val x = if (layoutDirection == LayoutDirection.Ltr) {
+                anchorBounds.left - margin.toPx() - popupContentSize.width
+            } else {
+                anchorBounds.right + margin.toPx()
+            }
             return IntOffset(x.roundToInt(), y.roundToInt())
         }
     }
 
 
     /**
-     * Setup ToolTipHorizontalEdge Bottom of Popup
+     * ToolTipVerticalEdge set to End of PopUp
      * */
-    object Bottom : ToolTipHorizontalEdge() {
-
+    object End : ToolTipVerticalEdge() {
         /**
          * @function drawTip that allow you to create a Tip.
          * This component is used to draw shape for ToolTip.
@@ -149,10 +161,20 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
          * @param layoutDirection Layout direction.
          */
         override fun Path.drawTip(size: Size, layoutDirection: LayoutDirection) {
-            moveTo(0f, size.height)
-            lineTo(size.width / 2f, 0f)
-            lineTo(size.width, size.height)
-            lineTo(0f, size.height)
+            when (layoutDirection) {
+                LayoutDirection.Ltr -> {
+                    moveTo(size.width, 0f)
+                    lineTo(0f, size.height / 2f)
+                    lineTo(size.width, size.height)
+                    lineTo(size.width, 0f)
+                }
+                LayoutDirection.Rtl -> {
+                    moveTo(0f, 0f)
+                    lineTo(size.width, size.height / 2f)
+                    lineTo(0f, size.height)
+                    lineTo(0f, 0f)
+                }
+            }
         }
 
         /**
@@ -178,13 +200,13 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
                 Box(
                     modifier = Modifier
                         .constrainAs(contentContainer) {
-                            start.linkTo(parent.start)
+                            top.linkTo(parent.top)
                             end.linkTo(parent.end)
                             bottom.linkTo(parent.bottom)
                         }
                         .padding(
-                            start = if (tipPositionOffset < 0.dp) tipPositionOffset * -2 else 0.dp,
-                            end = if (tipPositionOffset > 0.dp) tipPositionOffset * 2 else 0.dp
+                            top = if (tipPositionOffset < 0.dp) tipPositionOffset * -2 else 0.dp,
+                            bottom = if (tipPositionOffset > 0.dp) tipPositionOffset * 2 else 0.dp
                         )
                 ) {
                     content()
@@ -194,13 +216,13 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
                     modifier = Modifier
                         .constrainAs(tipContainer) {
                             linkTo(
-                                contentContainer.start,
-                                contentContainer.end,
+                                contentContainer.top,
+                                contentContainer.bottom,
                                 bias = tipPosition.toolTipPercent
                             )
-                            bottom.linkTo(contentContainer.top)
+                            end.linkTo(contentContainer.start)
                         }
-                        .padding(start = tipPadding, end = tipPadding)
+                        .padding(top = tipPadding, bottom = tipPadding)
                 ) {
                     tip()
                 }
@@ -232,17 +254,23 @@ sealed class ToolTipHorizontalEdge : ToolTipHorizontalAnchorEdge() {
             popupContentSize: IntSize,
             statusBarHeight: Int
         ): IntOffset = with(density) {
-            val x = calculatePopupPositionX(
+            val y = calculatePopupPositionY(
                 density,
-                layoutDirection,
                 anchorBounds,
                 anchorPosition,
                 tooltipStyle,
                 tipPosition,
                 popupContentSize
             )
-            val y = anchorBounds.bottom + margin.toPx()
+            val x = if (layoutDirection == LayoutDirection.Ltr) {
+                anchorBounds.right + margin.toPx()
+            } else {
+                anchorBounds.left - margin.toPx() - popupContentSize.width
+            }
             return IntOffset(x.roundToInt(), y.roundToInt())
         }
     }
 }
+
+
+

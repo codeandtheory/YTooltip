@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 import androidx.compose.ui.unit.IntSize
 

@@ -2,12 +2,20 @@ package com.app.components
 
 import android.os.Handler
 import android.os.Looper
-import com.yml.tooltip.R
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.BottomAppBar
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
@@ -20,13 +28,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import co.yml.tooltip.ToolTipView
+import co.yml.tooltip.utils.DEFAULT_PADDING
+import co.yml.tooltip.utils.EMPTY_STRING
+import co.yml.tooltip.utils.MAX_LINE
+import co.yml.tooltip.utils.TOOLTIP_ADDITIONAL_PADDING
+import co.yml.tooltip.utils.TOOLTIP_MAX_WIDTH_PERCENT
 import com.app.constants.DELAY_IN_MILLIS
 import com.app.constants.MAX_WIDTH_PER
 import com.app.data.remote.AppConfig
-import com.app.ui.theme.*
+import com.app.ui.theme.DEFAULT_ELEVATION
 import com.app.ui.theme.DEFAULT_SCREEN_PADDING
-import com.tooltip.ToolTipView
-import com.tooltip.utils.*
+import com.app.ui.theme.Grey
+import com.app.ui.theme.ToolTipBg
+import com.yml.tooltip.R
 
 /**
  * @Composable BottomAppBarView is used to create bottom appBar view.

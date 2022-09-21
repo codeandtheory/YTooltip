@@ -1,4 +1,4 @@
-package com.tooltip.utils
+package co.yml.tooltip.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -6,10 +6,10 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.tooltip.core.ToolTipAnchorEdgeView
-import com.tooltip.core.ToolTipEdgePosition
-import com.tooltip.core.ToolTipHorizontalEdge
-import com.tooltip.core.ToolTipVerticalEdge
+import co.yml.tooltip.core.ToolTipAnchorEdgeView
+import co.yml.tooltip.core.ToolTipEdgePosition
+import co.yml.tooltip.core.ToolTipHorizontalEdge
+import co.yml.tooltip.core.ToolTipVerticalEdge
 
 
 /**

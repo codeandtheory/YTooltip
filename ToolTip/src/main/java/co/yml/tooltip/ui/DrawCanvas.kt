@@ -1,4 +1,4 @@
-package com.tooltip.ui
+package co.yml.tooltip.ui
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.IntSize
-import com.tooltip.utils.SCREEN_ALPHA
-import com.tooltip.utils.TRANSPARENT_ALPHA
+import co.yml.tooltip.utils.SCREEN_ALPHA
+import co.yml.tooltip.utils.TRANSPARENT_ALPHA
 
 
 /**

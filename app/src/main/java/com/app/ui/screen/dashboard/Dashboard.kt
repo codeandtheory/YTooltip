@@ -11,11 +11,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.navigation.NavHostController
+import co.yml.tooltip.ui.ToolTipScreen
+import co.yml.tooltip.ui.isTipVisible
+import co.yml.tooltip.utils.DEFAULT_CORNER_RADIUS
+import co.yml.tooltip.utils.TRANSPARENT_ALPHA
 import com.app.components.BottomAppBarView
-import com.tooltip.ui.ToolTipScreen
-import com.tooltip.ui.isTipVisible
-import com.tooltip.utils.DEFAULT_CORNER_RADIUS
-import com.tooltip.utils.TRANSPARENT_ALPHA
 
 /**
  * @Composable Dashboard is parent component of this sample app.

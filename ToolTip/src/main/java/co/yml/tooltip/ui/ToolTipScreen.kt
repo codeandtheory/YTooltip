@@ -1,4 +1,4 @@
-package com.tooltip.ui
+package co.yml.tooltip.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
@@ -10,9 +10,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.unit.IntSize
-import com.tooltip.utils.DEFAULT_CORNER_RADIUS
-import com.tooltip.utils.DEFAULT_SCREEN_PADDING
-import com.tooltip.utils.TRANSPARENT_ALPHA
+import co.yml.tooltip.utils.DEFAULT_CORNER_RADIUS
+import co.yml.tooltip.utils.DEFAULT_SCREEN_PADDING
+import co.yml.tooltip.utils.TRANSPARENT_ALPHA
 
 /**
  * Component that allow you to highlight specific item and show overlay.

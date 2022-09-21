@@ -1,4 +1,4 @@
-package com.tooltip
+package co.yml.tooltip
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
@@ -15,8 +15,8 @@ import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
-import com.tooltip.ui.ToolTipScreen
-import com.tooltip.utils.EMPTY_STRING
+import co.yml.tooltip.ui.ToolTipScreen
+import co.yml.tooltip.utils.EMPTY_STRING
 import org.junit.Rule
 import org.junit.Test
 
