@@ -5,27 +5,23 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import co.yml.tooltip.ToolTipView
+import co.yml.tooltip.utils.TOOLTIP_ADDITIONAL_PADDING
+import co.yml.tooltip.utils.ToolTipGravity
 import com.app.components.ArticleView
 import com.app.components.ToolTipContentWithIcon
 import com.app.data.remote.AppConfig
 import com.app.data.repository.NewsRepo
 import com.app.ui.theme.DEFAULT_INNER_PADDING
 import com.app.ui.theme.PADDING_BOTTOM_APPBAR
-import com.app.ui.theme.Purple500
 import com.app.ui.theme.ToolTipBg
 import com.app.viewmodel.MainViewModel
 import com.app.viewmodel.MainViewModelFactory
-import com.tooltip.ToolTipView
-import com.tooltip.utils.TOOLTIP_ADDITIONAL_PADDING
-import com.tooltip.utils.ToolTipGravity
 
 @Composable
 fun HomeScreen(
