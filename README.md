@@ -1,4 +1,4 @@
-![Y-Matter Type](https://raw.githubusercontent.com/yml-org/YTooltip/main/art/logo.jpeg?token=GHSAT0AAAAAABYU3Y7ILBLHWQSBCHNSATRAYZLJLCQ)
+![Y-Matter Type](https://github.com/yml-org/YTooltip/raw/main/art/logo.jpeg)
 
 Y-Tooltip is a light and extensible tooltip library for Jetpack Compose system. It has two  modules:
 
