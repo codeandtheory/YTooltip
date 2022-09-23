@@ -53,6 +53,11 @@ ToolTipView(
 
 ![sample screenshot](sample_tooltip.png)
 
+### Download
+Gradle:
+```groovy
+implementation 'co.yml:ytooltip:1.0.0'
+```
 
 ### License
 Copyright 2022 YML
