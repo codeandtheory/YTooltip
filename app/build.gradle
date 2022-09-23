@@ -71,7 +71,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-glide:0.10.0"
 
 
-    implementation project(path: ':ToolTip')
+    implementation 'co.yml:ytooltip:1.0.0'
 
     //noinspection GradlePath
     api files('libs/android-release.aar')
