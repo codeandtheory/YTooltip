@@ -2,8 +2,9 @@
 
 Y-Tooltip is a light and extensible tooltip library for Jetpack Compose system. It has two  modules:
 
- 1- Tooltip (Tooltip components for Jetpack Compose)
- 2- app (sample app to showcase the different usage of tooltip)
+ * Tooltip (Tooltip components for Jetpack Compose)
+ * app (sample app to showcase the different usage of tooltip)
+
 ### What is a Tooltip ?
 
 A Tooltip is the message view which appears near to anchor view, it can have title, icon, and action 
@@ -11,8 +12,8 @@ button. A Tooltip view can be used for guiding the user.
 
 There are two types of tooltips available:
  
- 1- Tooltip screen.
- 2- Tooltip view.
+* Tooltip screen.
+* Tooltip view.
 
 ### TooltipScreen
 
@@ -54,13 +55,16 @@ ToolTipView(
 ![sample screenshot](sample_tooltip.png)
 
 ### Download
+You can add automatically the library via Maven Central:
+
 Gradle:
 ```groovy
 implementation 'co.yml:ytooltip:1.0.0'
 ```
 
 ### License
-Copyright 2022 YML
+    
+    Copyright 2022 YML
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
